@@ -19,10 +19,7 @@ purusitsRouter
     res.status(200).send("all okay from POST /api/pursuits");
   });
 
-purusitsRouter.get("/:pursuitID/user", (req, res) => {
-  //use getUserPursuitByPursuitId here
-  res.status(200).send("all okay from GET /api/:pursuitID/user");
-});
+purusitsRouter.get("/:pursuitID/user", getUserPursuitByPursuitId);
 
 purusitsRouter.get("/:pursuitID/host", (req, res) => {
   //use getHostedPursuitByPursuitId here
