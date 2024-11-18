@@ -21,7 +21,15 @@ exports.postPursuit = (req, res, next) => {
 };
 
 exports.getUserPursuitByPursuitId = (req, res, next) => {
-  //use selectUserPursuitByPursuitId in here
+  const { pursuitID } = req.params;
+  selectUserPursuitByPursuitId(pursuitID)
+    .then((pursuit) => {
+      res.status(200).send({ pursuit: pursuit });
+    })
+    .catch((err) => {
+      console.log(err.code);
+      next(err);
+    });
 };
 
 exports.getHostedPursuitByPursuitId = (req, res, next) => {
