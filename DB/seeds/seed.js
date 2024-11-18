@@ -46,7 +46,7 @@ const seed = ({ devUsers, devHunts, devParticipants, devCompletions }) => {
     })
     .then(() => {
       return db.query(`CREATE TABLE completed_pursuits (
-            pursuit_ID INT REFERENCES pursuits(pursuit_ID) NOT NULL,
+            pursuit_ID INT REFERENCES pursuits(pursuit_ID) DEFAULT NULL,
             user_ID INT REFERENCES users(user_ID) NOT NULL,
             points INT NOT NULL
             )`);
@@ -99,7 +99,7 @@ const seed = ({ devUsers, devHunts, devParticipants, devCompletions }) => {
     .then(() => {
       const insertIntoParticipants = format(
         "INSERT INTO participants (user_ID, pursuit_ID) VALUES %L",
-        devParticipants.map(({ user_id, pursuit_id }) => [user_id, pursuit_id])
+        devUsers.map(({ ID, pursuitID }) => [ID, pursuitID])
       );
       return db.query(insertIntoParticipants);
     })
