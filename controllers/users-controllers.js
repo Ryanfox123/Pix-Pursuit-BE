@@ -21,7 +21,10 @@ exports.getUsersbyUsername = (req, res, next) => {
 };
 
 exports.getUsersPointsbyPursuitId = (req, res, next) => {
-  //use selectUsersPointsByPursuitID in here
+  const { id } = req.params;
+  selectUsersPointsByPursuitId(id).then((users) => {
+    res.status(200).send({ users });
+  });
 };
 
 exports.patchUsersPointsByUserId = (req, res, next) => {
