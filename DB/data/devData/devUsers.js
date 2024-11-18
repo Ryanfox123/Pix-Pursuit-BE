@@ -4,7 +4,7 @@ module.exports = [
     email: "john.doe@example.com",
     password: "JohnDoe2024!@#",
     points: 1250,
-    pursuitID: 101,
+    pursuitID: 1,
     username: "john_doe",
   },
   {
@@ -12,7 +12,7 @@ module.exports = [
     email: "sarah.connor@example.com",
     password: "SecurePass!2024",
     points: 3200,
-    pursuitID: 102,
+    pursuitID: 2,
     username: "sarah_connor",
   },
   {
@@ -20,7 +20,7 @@ module.exports = [
     email: "mike.jones@example.com",
     password: "M!keJones$2024",
     points: 2200,
-    pursuitID: 103,
+    pursuitID: 3,
     username: "mike_jones",
   },
   {
@@ -28,7 +28,7 @@ module.exports = [
     email: "emily.james@example.com",
     password: "Em1lyJames123",
     points: 500,
-    pursuitID: 104,
+    pursuitID: 4,
     username: "emily_james",
   },
 
@@ -37,7 +37,7 @@ module.exports = [
     email: "alice.green@example.com",
     password: "AliceGreen2024$",
     points: 1200,
-    pursuitID: 105,
+    pursuitID: 5,
     username: "alice_green",
   },
   {
@@ -45,7 +45,7 @@ module.exports = [
     email: "bob.smith@example.com",
     password: "BobSmith@2024",
     points: 3500,
-    pursuitID: 106,
+    pursuitID: 6,
     username: "bob_smith",
   },
   {
@@ -53,7 +53,7 @@ module.exports = [
     email: "charlotte.brown@example.com",
     password: "Ch@rlotteB2024!",
     points: 2800,
-    pursuitID: 107,
+    pursuitID: 7,
     username: "charlotte_brown",
   },
   {
@@ -61,7 +61,7 @@ module.exports = [
     email: "david.johnson@example.com",
     password: "D@vidJohnson2024",
     points: 2200,
-    pursuitID: 108,
+    pursuitID: 8,
     username: "david_johnson",
   },
   {
@@ -69,7 +69,7 @@ module.exports = [
     email: "ella.white@example.com",
     password: "EllaWhite@2024",
     points: 1900,
-    pursuitID: 109,
+    pursuitID: 9,
     username: "ella_white",
   },
   {
@@ -77,7 +77,7 @@ module.exports = [
     email: "frank.martinez@example.com",
     password: "FrankM@rtinez2024",
     points: 350,
-    pursuitID: 110,
+    pursuitID: 10,
     username: "frank_martinez",
   },
   {
@@ -85,7 +85,7 @@ module.exports = [
     email: "grace.jones@example.com",
     password: "GraceJones2024*",
     points: 1300,
-    pursuitID: 111,
+    pursuitID: 11,
     username: "grace_jones",
   },
   {
@@ -93,7 +93,7 @@ module.exports = [
     email: "harry.clark@example.com",
     password: "HarryC@lark2024",
     points: 1500,
-    pursuitID: 112,
+    pursuitID: 12,
     username: "harry_clark",
   },
   {
@@ -101,7 +101,7 @@ module.exports = [
     email: "isabella.walker@example.com",
     password: "IsabellaW@lker2024",
     points: 2100,
-    pursuitID: 113,
+    pursuitID: 13,
     username: "isabella_walker",
   },
   {
@@ -109,7 +109,7 @@ module.exports = [
     email: "jack.miller@example.com",
     password: "J@ckMiller2024",
     points: 4500,
-    pursuitID: 114,
+    pursuitID: 14,
     username: "jack_miller",
   },
   {
@@ -117,7 +117,7 @@ module.exports = [
     email: "kate.taylor@example.com",
     password: "KateT@ylor2024",
     points: 3000,
-    pursuitID: 115,
+    pursuitID: 15,
     username: "kate_taylor",
   },
   {
@@ -125,7 +125,7 @@ module.exports = [
     email: "leo.davis@example.com",
     password: "LeoD@vis2024",
     points: 2300,
-    pursuitID: 116,
+    pursuitID: 16,
     username: "leo_davis",
   },
   {
@@ -133,7 +133,7 @@ module.exports = [
     email: "maria.harris@example.com",
     password: "M@riaHarris2024",
     points: 1100,
-    pursuitID: 117,
+    pursuitID: 17,
     username: "maria_harris",
   },
   {
@@ -141,7 +141,7 @@ module.exports = [
     email: "noah.rodriguez@example.com",
     password: "NoahR@odriguez2024",
     points: 3300,
-    pursuitID: 118,
+    pursuitID: 18,
     username: "noah_rodriguez",
   },
   {
@@ -149,7 +149,7 @@ module.exports = [
     email: "olivia.martin@example.com",
     password: "OliviaM@rtin2024",
     points: 2700,
-    pursuitID: 119,
+    pursuitID: 19,
     username: "olivia_martin",
   },
   {
@@ -157,7 +157,7 @@ module.exports = [
     email: "peter.lewis@example.com",
     password: "PeterL@wis2024",
     points: 1800,
-    pursuitID: 120,
+    pursuitID: 20,
     username: "peter_lewis",
   },
   {
@@ -165,7 +165,7 @@ module.exports = [
     email: "quincy.morris@example.com",
     password: "QuincyM@rris2024",
     points: 1400,
-    pursuitID: 121,
+    pursuitID: 21,
     username: "quincy_morris",
   },
   {
@@ -173,7 +173,7 @@ module.exports = [
     email: "rachel.young@example.com",
     password: "R@chelYoung2024",
     points: 2000,
-    pursuitID: 122,
+    pursuitID: 22,
     username: "rachel_young",
   },
   {
@@ -181,7 +181,7 @@ module.exports = [
     email: "samuel.allen@example.com",
     password: "S@mu@lAllen2024",
     points: 2600,
-    pursuitID: 123,
+    pursuitID: 23,
     username: "samuel_allen",
   },
   {
@@ -189,7 +189,7 @@ module.exports = [
     email: "tina.king@example.com",
     password: "TinaK@ng2024",
     points: 3200,
-    pursuitID: 124,
+    pursuitID: 24,
     username: "tina_king",
   },
   {
@@ -197,7 +197,7 @@ module.exports = [
     email: "ursula.wright@example.com",
     password: "UrsulaWright2024",
     points: 500,
-    pursuitID: 124,
+    pursuitID: 24,
     username: "ursula_wright",
   },
 ];
