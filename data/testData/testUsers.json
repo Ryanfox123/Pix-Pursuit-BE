@@ -26,7 +26,7 @@
   {
     "ID": 4,
     "email": "user4@example.com",
-    "password": "1234pass",
+    "password": "123456pass",
     "points": 200,
     "pursuitID": 2,
     "username": "user4"
@@ -34,7 +34,7 @@
   {
     "ID": 5,
     "email": "user5@example.com",
-    "password": "1234pass",
+    "password": "1234567pass",
     "points": 200,
     "pursuitID": 2,
     "username": "user5"
