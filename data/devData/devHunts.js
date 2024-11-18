@@ -2,7 +2,7 @@
   {
     "pursuitID": 101,
     "hostID": 1,
-    "image": "https://example.com/hunts/hunt1.jpg",
+    "image": "https://m.media-amazon.com/images/M/MV5BZjcxYTIxNjYtZmJkNS00Yjk5LTk2ZTgtYWQ4OWI0OTI3ODhmXkEyXkFqcGc@._V1_QL75_UX387_.jpg",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.06,
@@ -16,7 +16,7 @@
   {
     "pursuitID": 102,
     "hostID": 2,
-    "image": "https://example.com/hunts/hunt2.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Traquair_House_Maze.jpg",
     "targetLat": 51.5074,
     "targetLong": -0.1278,
     "randomLat": 51.5079,
@@ -30,7 +30,7 @@
   {
     "pursuitID": 103,
     "hostID": 3,
-    "image": "https://example.com/hunts/hunt3.jpg",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/07/a8/2c/caption.jpg?w=1400&h=1400&s=1",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.857,
@@ -44,7 +44,7 @@
   {
     "pursuitID": 104,
     "hostID": 4,
-    "image": "https://example.com/hunts/hunt4.jpg",
+    "image": "https://www.frommers.com/system/media_items/attachments/000/868/461/s980/Frommers-New-York-City-Getting-Around-1190x768.webp?1647177178",
     "targetLat": 40.7306,
     "targetLong": -73.9352,
     "randomLat": 40.732,
@@ -58,7 +58,7 @@
   {
     "pursuitID": 105,
     "hostID": 5,
-    "image": "https://example.com/hunts/hunt105.jpg",
+    "image": "https://img.pixers.pics/pho_wat(s3:700/FO/38/57/07/61/700_FO38570761_6ed0e66716318a99d78c3e0aa93fe90e.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/stickers-hollywood-star.jpg.jpg",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.06,
@@ -72,7 +72,7 @@
   {
     "pursuitID": 106,
     "hostID": 6,
-    "image": "https://example.com/hunts/hunt106.jpg",
+    "image": "https://marathontours.com/wp-content/uploads/sites/3/2023/06/new-york-city-marathon-header.jpeg",
     "targetLat": 40.7128,
     "targetLong": -74.006,
     "randomLat": 40.71,
@@ -86,7 +86,7 @@
   {
     "pursuitID": 107,
     "hostID": 7,
-    "image": "https://example.com/hunts/hunt107.jpg",
+    "image": "https://i.natgeofe.com/n/4def1048-f5e5-4973-ad3a-e188a97d363f/regents-street-london-england_3x4.jpg",
     "targetLat": 51.5074,
     "targetLong": -0.1278,
     "randomLat": 51.505,
@@ -100,7 +100,7 @@
   {
     "pursuitID": 108,
     "hostID": 8,
-    "image": "https://example.com/hunts/hunt108.jpg",
+    "image": "https://lp-cms-production.imgix.net/2024-02/shutterstock765382675.jpg?w=1440&h=810&fit=crop&auto=format&q=75",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.06,
@@ -114,7 +114,7 @@
   {
     "pursuitID": 109,
     "hostID": 9,
-    "image": "https://example.com/hunts/hunt109.jpg",
+    "image": "https://www.cia-france.com/media/1803/paris-louvre_1100x700.jpeg",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.859,
@@ -128,7 +128,7 @@
   {
     "pursuitID": 110,
     "hostID": 10,
-    "image": "https://example.com/hunts/hunt110.jpg",
+    "image": "https://cdn.britannica.com/46/236446-050-29DC7886/Brooklyn-Heights-Montague-Street-New-York.jpg",
     "targetLat": 40.7306,
     "targetLong": -73.9352,
     "randomLat": 40.735,
@@ -142,7 +142,7 @@
   {
     "pursuitID": 111,
     "hostID": 11,
-    "image": "https://example.com/hunts/hunt111.jpg",
+    "image": "https://img.freepik.com/free-photo/empire-state-building-sunset_23-2151003490.jpg",
     "targetLat": 40.748817,
     "targetLong": -73.985428,
     "randomLat": 40.75,
@@ -156,7 +156,7 @@
   {
     "pursuitID": 112,
     "hostID": 12,
-    "image": "https://example.com/hunts/hunt112.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/640px-Louvre_Museum_Wikimedia_Commons.jpg",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.86,
@@ -170,7 +170,7 @@
   {
     "pursuitID": 113,
     "hostID": 13,
-    "image": "https://example.com/hunts/hunt113.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Paris_boulevard_de_strasbourg.jpg/800px-Paris_boulevard_de_strasbourg.jpg",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.04,
@@ -184,7 +184,7 @@
   {
     "pursuitID": 114,
     "hostID": 14,
-    "image": "https://example.com/hunts/hunt114.jpg",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/f8/bb/big-ben.jpg?w=900&h=500&s=1&pcx=1033&pcy=310&pchk=v1_bf93e1170e1f1f8d4cea",
     "targetLat": 51.5074,
     "targetLong": -0.1278,
     "randomLat": 51.51,
@@ -198,7 +198,7 @@
   {
     "pursuitID": 115,
     "hostID": 15,
-    "image": "https://example.com/hunts/hunt115.jpg",
+    "image": "https://wm-cdn.midland.com.hk/img_wm_revamp.php?wm=mr&src=http%3A%2F%2Fimg.midland.com.hk%2Fphoto_db%2Foutlook%2Festate%2FEE11437_10.jpg&h=600",
     "targetLat": 40.748817,
     "targetLong": -73.985428,
     "randomLat": 40.75,
@@ -212,7 +212,7 @@
   {
     "pursuitID": 116,
     "hostID": 16,
-    "image": "https://example.com/hunts/hunt116.jpg",
+    "image": "https://www.meininger-hotels.com/blog/app/uploads/2019/09/London-2.jpg",
     "targetLat": 51.5074,
     "targetLong": -0.1278,
     "randomLat": 51.52,
@@ -226,7 +226,7 @@
   {
     "pursuitID": 117,
     "hostID": 17,
-    "image": "https://example.com/hunts/hunt117.jpg",
+    "image": "https://static.independent.co.uk/2024/07/20/13/iStock-1352663909.jpg?quality=75&width=640&crop=3%3A2%2Csmart&auto=webp",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.86,
@@ -235,12 +235,12 @@
     "completions": 55,
     "active": true,
     "createdAt": "2024-06-18T10:15:00Z",
-    "title": "The Parisian Escape"
+    "title": "Parisian Escape"
   },
   {
     "pursuitID": 118,
     "hostID": 18,
-    "image": "https://example.com/hunts/hunt118.jpg",
+    "image": "https://images.ctfassets.net/1aemqu6a6t65/1uvB1rEhZ58uhli3NI9AE4/c70496a19e986cc55d05f8a44cfaa249/brooklyn-bridge-dumbo-brooklyn-nyc-julienne-schaer-242?w=1200&h=800&q=75",
     "targetLat": 40.7128,
     "targetLong": -74.006,
     "randomLat": 40.715,
@@ -254,7 +254,7 @@
   {
     "pursuitID": 119,
     "hostID": 19,
-    "image": "https://example.com/hunts/hunt119.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Beach_bikepath_in_the_Venice_Beach_park%2C_California.jpg",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.055,
@@ -268,7 +268,7 @@
   {
     "pursuitID": 120,
     "hostID": 20,
-    "image": "https://example.com/hunts/hunt120.jpg",
+    "image": "https://media.cnn.com/api/v1/images/stellar/prod/170801114832-eiffel-tower-guide-base.jpg?q=w_2187,h_1458,x_0,y_0,c_fill/h_447",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.855,
@@ -282,7 +282,7 @@
   {
     "pursuitID": 121,
     "hostID": 21,
-    "image": "https://example.com/hunts/hunt121.jpg",
+    "image": "https://image.newyork.co.uk/wp-content/uploads/2013/02/Central-Park.jpg",
     "targetLat": 40.7306,
     "targetLong": -73.9352,
     "randomLat": 40.735,
@@ -296,7 +296,7 @@
   {
     "pursuitID": 122,
     "hostID": 22,
-    "image": "https://example.com/hunts/hunt122.jpg",
+    "image": "https://media.timeout.com/images/105825634/image.jpg",
     "targetLat": 34.0522,
     "targetLong": -118.2437,
     "randomLat": 34.06,
@@ -310,7 +310,7 @@
   {
     "pursuitID": 123,
     "hostID": 23,
-    "image": "https://example.com/hunts/hunt123.jpg",
+    "image": "https://evanevanstours.com/blog/wp-content/uploads/2024/03/Large-Arc-de-Triomphe-at-sunrise-Paris-France-1277179412-1200x900.jpg",
     "targetLat": 48.8566,
     "targetLong": 2.3522,
     "randomLat": 48.86,
@@ -324,7 +324,7 @@
   {
     "pursuitID": 124,
     "hostID": 24,
-    "image": "https://example.com/hunts/hunt124.jpg",
+    "image": "https://images.nestseekers.com/_next/image?url=https://photos.nestseekers.com/Apt/DSC05571_1.jpg&w=3840&q=70",
     "targetLat": 40.7128,
     "targetLong": -74.006,
     "randomLat": 40.71,
