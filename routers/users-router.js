@@ -1,11 +1,10 @@
 const usersRouter = require("express").Router();
 
+const { getUsers } = require("../controllers/users-controllers");
+
 usersRouter
   .route("/")
-  .get((req, res) => {
-    // use getUsers in here
-    res.status(200).send("all okay from GET /api/users");
-  })
+  .get(getUsers)
   .post((req, res) => {
     // use postUsers in here
     res.status(200).send("all okay from POST /api/users");

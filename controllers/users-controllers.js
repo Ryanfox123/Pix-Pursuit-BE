@@ -9,7 +9,9 @@ const {
 } = require("../models/users-models.js");
 
 exports.getUsers = (req, res, next) => {
-  //use selectUsers in here
+  selectUsers().then((users) => {
+    res.status(200).send({ users: users });
+  });
 };
 
 exports.postUsers = (req, res, next) => {

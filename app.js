@@ -7,6 +7,6 @@ const app = express();
 app.use("/api", apiRouter);
 
 app.use(customErrors);
-app.use(sqlErrors);
+// app.use(sqlErrors);
 
 module.exports = app;
