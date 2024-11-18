@@ -35,7 +35,16 @@ exports.getUsersPointsbyPursuitId = (req, res, next) => {
 };
 
 exports.patchUsersPointsByUserId = (req, res, next) => {
-  // Use updateUsersPointsByUserId in here
+  const { userID } = req.params;
+  const { body } = req;
+  const { inc_points } = body;
+  updateUsersPointsByUserId(userID, inc_points)
+    .then((user) => {
+      res.status(200).send({ user: user });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.patchUsersPursuitByUserId = () => {

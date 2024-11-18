@@ -2,7 +2,7 @@ const app = require("../app");
 const request = require("supertest");
 const data = require("../DB/data/testData/index.js");
 const db = require("../DB/connection.js");
-const seed = require("../db/seeds/seed.js");
+const seed = require("../DB/seeds/seed.js");
 
 beforeEach(() => seed(data));
 afterAll(() => db.end());

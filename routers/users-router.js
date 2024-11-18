@@ -1,4 +1,7 @@
-const { getUsersbyUsername } = require("../controllers/users-controllers");
+const {
+  getUsersbyUsername,
+  patchUsersPointsByUserId,
+} = require("../controllers/users-controllers");
 
 const usersRouter = require("express").Router();
 
@@ -19,10 +22,7 @@ usersRouter.get("/points/:pursuitID", (req, res) => {
   res.status(200).send("all okay from GET /api/users/points/:pursuitID");
 });
 
-usersRouter.patch("/:userID/points", (req, res) => {
-  //use patchUsersPointsByUserId in here
-  res.status(200).send("all okay from GET /api/users/:userID/points");
-});
+usersRouter.patch("/:userID/points", patchUsersPointsByUserId);
 
 usersRouter.patch("/:userID/pursuit", (req, res) => {
   //use patchUsersPursuitByUserId in here
