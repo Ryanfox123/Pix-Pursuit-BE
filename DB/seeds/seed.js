@@ -1,7 +1,7 @@
 const db = require("../connection");
 const format = require("pg-format");
 
-const seed = ({ devUsers, devHunts, devParticipants, devCompletions }) => {
+const seed = ({ devUsers, devHunts, devCompletions }) => {
   return db
     .query(`DROP TABLE IF EXISTS pursuits CASCADE;`)
     .then(() => {
