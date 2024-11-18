@@ -1,3 +1,3 @@
-exports.devUsers = require("./devUsers");
-exports.devHunts = require("./devHunts");
-exports.devCompletions = require("./devCompletions");
+exports.usersData = require("./usersData");
+exports.huntsData = require("./huntsData");
+exports.completionsData = require("./completionsData");

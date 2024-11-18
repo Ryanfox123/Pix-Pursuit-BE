@@ -1,7 +1,7 @@
 const db = require("../connection");
 const format = require("pg-format");
 
-const seed = ({ devUsers, devHunts, devCompletions }) => {
+const seed = ({ usersData, huntsData, completionsData }) => {
   return db
     .query(`DROP TABLE IF EXISTS pursuits CASCADE;`)
     .then(() => {
@@ -54,7 +54,7 @@ const seed = ({ devUsers, devHunts, devCompletions }) => {
     .then(() => {
       const insertIntoUsersQueryStr = format(
         "INSERT INTO users (email, password, points, username) VALUES %L",
-        devUsers.map(({ email, password, points, username }) => [
+        usersData.map(({ email, password, points, username }) => [
           email,
           password,
           points,
@@ -66,7 +66,7 @@ const seed = ({ devUsers, devHunts, devCompletions }) => {
     .then(() => {
       const insertIntoPursuitsStr = format(
         "INSERT INTO pursuits (host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, completions ) VALUES %L",
-        devHunts.map(
+        huntsData.map(
           ({
             hostID,
             image,
@@ -99,14 +99,14 @@ const seed = ({ devUsers, devHunts, devCompletions }) => {
     .then(() => {
       const insertIntoParticipants = format(
         "INSERT INTO participants (user_ID, pursuit_ID) VALUES %L",
-        devUsers.map(({ ID, pursuitID }) => [ID, pursuitID])
+        usersData.map(({ ID, pursuitID }) => [ID, pursuitID])
       );
       return db.query(insertIntoParticipants);
     })
     .then(() => {
       const insertIntoCompletions = format(
         "INSERT INTO completed_pursuits (pursuit_ID, user_ID, points) VALUES %L",
-        devCompletions.map(({ pursuit_id, user_id, points }) => [
+        completionsData.map(({ pursuit_id, user_id, points }) => [
           pursuit_id,
           user_id,
           points,
