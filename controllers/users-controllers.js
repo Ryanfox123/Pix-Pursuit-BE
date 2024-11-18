@@ -19,7 +19,15 @@ exports.postUsers = (req, res, next) => {
 };
 
 exports.getUsersbyUsername = (req, res, next) => {
-  //use selectUsersByUsername in here
+  const { username } = req.params;
+  selectUsersByUsername(username)
+    .then((user) => {
+      res.status(200).send({ user: user });
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
 };
 
 exports.getUsersPointsbyPursuitId = (req, res, next) => {
