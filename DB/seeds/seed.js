@@ -1,8 +1,9 @@
 const db = require("../connection");
+const format = require("pg-format");
 
-const seed = () => {
+const seed = ({ devUsers, devHunts, devParticipants, devCompletions }) => {
   return db
-    .query(`DROP TABLE IF EXISTS pursuits;`)
+    .query(`DROP TABLE IF EXISTS pursuits CASCADE;`)
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS completed_pursuits;`);
     })
@@ -10,7 +11,7 @@ const seed = () => {
       return db.query(`DROP TABLE IF EXISTS participants;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS users`);
+      return db.query(`DROP TABLE IF EXISTS users CASCADE`);
     })
     .then(() => {
       return db.query(`CREATE TABLE users (
@@ -22,20 +23,14 @@ const seed = () => {
         );`);
     })
     .then(() => {
-      return db.query(`CREATE TABLE participants (
-            user_ID INT REFERENCES users(user_ID) NOT NULL,
-            pursuit_ID INT REFERENCES pursuits(pursuit_ID) NOT NULL
-            )`);
-    })
-    .then(() => {
-      return db.query(`CREATE TABLE hunts (
+      return db.query(`CREATE TABLE pursuits (
         pursuit_ID SERIAL PRIMARY KEY,
         host_ID INT NOT NULL REFERENCES users(user_ID) ON DELETE CASCADE,
-        image VARCHAR(200) NOT NULL,
-        target_lat INT NOT NULL,
-        target_long INT NOT NULL,
-        random_lat INT NOT NULL,
-        random_long INT NOT NULL,
+        image VARCHAR(500) NOT NULL,
+        target_lat FLOAT NOT NULL,
+        target_long FLOAT NOT NULL,
+        random_lat FLOAT NOT NULL,
+        random_long FLOAT NOT NULL,
         difficulty VARCHAR(6) NOT NULL,
         completions INT DEFAULT 0,
         active BOOLEAN NOT NULL,
@@ -44,11 +39,80 @@ const seed = () => {
         );`);
     })
     .then(() => {
+      return db.query(`CREATE TABLE participants (
+            user_ID INT REFERENCES users(user_ID) NOT NULL,
+            pursuit_ID INT REFERENCES pursuits(pursuit_ID) NOT NULL
+            )`);
+    })
+    .then(() => {
       return db.query(`CREATE TABLE completed_pursuits (
             pursuit_ID INT REFERENCES pursuits(pursuit_ID) NOT NULL,
             user_ID INT REFERENCES users(user_ID) NOT NULL,
             points INT NOT NULL
             )`);
+    })
+    .then(() => {
+      const insertIntoUsersQueryStr = format(
+        "INSERT INTO users (email, password, points, username) VALUES %L",
+        devUsers.map(({ email, password, points, username }) => [
+          email,
+          password,
+          points,
+          username,
+        ])
+      );
+      return db.query(insertIntoUsersQueryStr);
+    })
+    .then(() => {
+      const insertIntoPursuitsStr = format(
+        "INSERT INTO pursuits (host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, completions ) VALUES %L",
+        devHunts.map(
+          ({
+            hostID,
+            image,
+            targetLat,
+            targetLong,
+            randomLat,
+            randomLong,
+            difficulty,
+            completions,
+            active,
+            createdAt,
+            title,
+          }) => [
+            hostID,
+            image,
+            targetLat,
+            targetLong,
+            randomLat,
+            randomLong,
+            difficulty,
+            active,
+            createdAt,
+            title,
+            completions,
+          ]
+        )
+      );
+      return db.query(insertIntoPursuitsStr);
+    })
+    .then(() => {
+      const insertIntoParticipants = format(
+        "INSERT INTO participants (user_ID, pursuit_ID) VALUES %L",
+        devParticipants.map(({ user_id, pursuit_id }) => [user_id, pursuit_id])
+      );
+      return db.query(insertIntoParticipants);
+    })
+    .then(() => {
+      const insertIntoCompletions = format(
+        "INSERT INTO completed_pursuits (pursuit_ID, user_ID, points) VALUES %L",
+        devCompletions.map(({ pursuit_id, user_id, points }) => [
+          pursuit_id,
+          user_id,
+          points,
+        ])
+      );
+      return db.query(insertIntoCompletions);
     });
 };
 
