@@ -1,7 +1,13 @@
-const db = require("../DB/connection");
-const format = require("pg-format");
 
-exports.selectUsers = () => {};
+const format = require("pg-format");
+const db = require("../DB/connection.js");
+
+exports.selectUsers = () => {
+  const queryStr = `SELECT * FROM users`;
+  return db.query(queryStr).then(({ rows }) => {
+    return rows;
+  });
+};
 
 exports.insertUsers = () => {};
 
