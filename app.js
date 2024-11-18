@@ -1,12 +1,12 @@
 const express = require("express");
 const apiRouter = require("./routers/api-router");
+const { customErrors, sqlErrors } = require("./error-handler");
 
 const app = express();
 
 app.use("/api", apiRouter);
 
-// app.listen(9090, () => {
-//   console.log(`Example app listening on port 9090`);
-// });
+app.use(customErrors);
+app.use(sqlErrors);
 
 module.exports = app;
