@@ -7,7 +7,13 @@ const {
 } = require("../models/pursuits-model");
 
 exports.getPursuits = (req, res, next) => {
-  //use selectPursuits in here
+  selectPursuits()
+    .then((pursuits) => {
+      res.status(200).send({ pursuits: pursuits });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.postPursuit = (req, res, next) => {
