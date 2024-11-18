@@ -8,7 +8,7 @@ beforeEach(() => seed(data));
 afterAll(() => db.end());
 
 describe("/api/users/points/:pursuitId", () => {
-  it.only("responds 200 - returns an array of 3 user objects with properties username and points", () => {
+  it("responds 200 - returns an array of 3 user objects with properties username and points", () => {
     return request(app)
       .get("/api/users/points/1")
       .expect(200)

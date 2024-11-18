@@ -2,9 +2,7 @@ const app = require("../app");
 const request = require("supertest");
 const data = require("../DB/data/testData/index.js");
 const db = require("../DB/connection.js");
-const seed = require("../db/seeds/seed.js");
-const exp = require("constants");
-const { create } = require("domain");
+const seed = require("../DB/seeds/seed.js");
 
 beforeEach(() => seed(data));
 afterAll(() => db.end());
@@ -37,7 +35,6 @@ describe("get /api/pursuits/:pursuitID/users", () => {
       .get("/api/pursuits/wrong/user")
       .expect(400)
       .then(({ body }) => {
-        console.log(body);
         expect(body.msg).toBe("400: Invalid request");
       });
   });
