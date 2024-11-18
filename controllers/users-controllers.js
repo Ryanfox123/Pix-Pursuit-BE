@@ -15,7 +15,13 @@ exports.getUsers = (req, res, next) => {
 };
 
 exports.postUsers = (req, res, next) => {
-  //use insertUsers in here
+  insertUsers(req.body)
+    .then((user) => {
+      res.status(201).send({ user });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.getUsersbyUsername = (req, res, next) => {

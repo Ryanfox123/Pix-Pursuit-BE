@@ -5,15 +5,9 @@ const {
 
 const usersRouter = require("express").Router();
 
-const { getUsers } = require("../controllers/users-controllers");
+const { getUsers, postUsers } = require("../controllers/users-controllers");
 
-usersRouter
-  .route("/")
-  .get(getUsers)
-  .post((req, res) => {
-    // use postUsers in here
-    res.status(200).send("all okay from POST /api/users");
-  });
+usersRouter.route("/").get(getUsers).post(postUsers);
 
 usersRouter.get("/:username", getUsersbyUsername);
 
