@@ -1,3 +1,5 @@
+const { getUsersbyUsername } = require("../controllers/users-controllers");
+
 const usersRouter = require("express").Router();
 
 usersRouter
@@ -11,10 +13,7 @@ usersRouter
     res.status(200).send("all okay from POST /api/users");
   });
 
-usersRouter.get("/:username", (req, res) => {
-  // use getUsersbyUsername in here
-  res.status(200).send("all okay from GET /api/users/:username");
-});
+usersRouter.get("/:username", getUsersbyUsername);
 
 usersRouter.get("/points/:pursuitID", (req, res) => {
   // use getUsersPointsbyPursuitId in here

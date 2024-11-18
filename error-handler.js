@@ -6,4 +6,4 @@ exports.customErrors = (err, req, res, next) => {
   }
 };
 
-exports.sqlErrors = (err, req, res, next) = () => {}
+// exports.sqlErrors = (err, req, res, next) = () => {}
