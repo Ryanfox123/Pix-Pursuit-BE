@@ -1,14 +1,10 @@
 const db = require("../DB/connection");
-<<<<<<< HEAD
+
 exports.selectPursuits = () => {
   return db.query("SELECT * FROM pursuits;").then((res) => {
     return res.rows;
   });
 };
-=======
-
-exports.selectPursuits = () => {};
->>>>>>> cd0c47055a81fd5bdd1848b0633206d1c70a358f
 
 exports.insertPursuit = () => {};
 
