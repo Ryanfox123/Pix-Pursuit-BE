@@ -10,7 +10,7 @@ afterAll(() => db.end());
 describe("get /api/pursuits/:pursuitID/users", () => {
   test(" 200: should return a specific pursuits information based on the ID passed", () => {
     return request(app)
-      .get("/api/pursuits/1/user")
+      .get("/api/pursuits/1")
       .expect(200)
       .then(({ body }) => {
         const pursuit = body.pursuit;
@@ -24,7 +24,7 @@ describe("get /api/pursuits/:pursuitID/users", () => {
   });
   test("404: should return with a error if passed a pursuit id that is not valid", () => {
     return request(app)
-      .get("/api/pursuits/100/user")
+      .get("/api/pursuits/100")
       .expect(404)
       .then(({ body }) => {
         expect(body.msg).toBe("404: Pursuit not found");
@@ -32,7 +32,7 @@ describe("get /api/pursuits/:pursuitID/users", () => {
   });
   test("400: should return with a error if passed a pursuit id that is not a valid data type for pursuitID", () => {
     return request(app)
-      .get("/api/pursuits/wrong/user")
+      .get("/api/pursuits/wrong")
       .expect(400)
       .then(({ body }) => {
         expect(body.msg).toBe("400: Invalid request");

@@ -10,7 +10,7 @@ afterAll(() => db.end());
 describe("GET /pursuits/:hostID/host", () => {
   test("200: should get back pursuit info when give a host id.", () => {
     return request(app)
-      .get("/api/pursuits/1/host")
+      .get("/api/pursuits/host/1")
       .expect(200)
       .then(({ body }) => {
         const pursuit = body.pursuit;
@@ -32,7 +32,7 @@ describe("GET /pursuits/:hostID/host", () => {
   });
   test("should return a 400 if passed a bad type of host_ID", () => {
     return request(app)
-      .get("/api/pursuits/wrong/host")
+      .get("/api/pursuits/host/wrong")
       .expect(400)
       .then(({ body }) => {
         expect(body.msg).toBe("400: Invalid request");
@@ -40,7 +40,7 @@ describe("GET /pursuits/:hostID/host", () => {
   });
   test("should return a 404 if passed a host id of valid user but they are not linked to any active pursuits", () => {
     return request(app)
-      .get("/api/pursuits/2/host")
+      .get("/api/pursuits/host/2")
       .expect(404)
       .then(({ body }) => {
         expect(body.msg).toBe("No active pursuits linked to this host");

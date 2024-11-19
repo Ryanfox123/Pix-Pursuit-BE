@@ -10,10 +10,11 @@ const {
 
 purusitsRouter.route("/").get(getPursuits).post(postPursuit);
 
-purusitsRouter.get("/:pursuitID/user", getUserPursuitByPursuitId);
+purusitsRouter.get("/host/:hostID", getHostedPursuitByHostId);
 
-purusitsRouter.get("/:hostID/host", getHostedPursuitByHostId);
-
-purusitsRouter.patch("/:pursuitID", patchPursuitByPursuitId);
+purusitsRouter
+  .route("/:pursuitID")
+  .get(getUserPursuitByPursuitId)
+  .patch(patchPursuitByPursuitId);
 
 module.exports = purusitsRouter;

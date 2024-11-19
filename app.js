@@ -8,6 +8,10 @@ app.use(express.json());
 
 app.use("/api", apiRouter);
 
+app.get("*", (req, res, next) => {
+  res.status(404).send({ msg: "endpoint not found" });
+});
+
 app.use(customErrors);
 
 app.use(sqlErrors);
