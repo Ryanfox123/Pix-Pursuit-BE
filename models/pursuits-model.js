@@ -1,4 +1,4 @@
-const db = require("../DB/connection");
+const db = require("../db/connection");
 
 exports.selectPursuits = () => {
   return db.query("SELECT * FROM pursuits;").then((res) => {
