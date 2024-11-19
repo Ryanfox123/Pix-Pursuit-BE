@@ -3,6 +3,7 @@ const {
   getUsersPointsByPursuitId,
   getUsersbyUsername,
   postUsersPursuitPoints,
+  postUsersAuth,
 } = require("../controllers/users-controllers");
 
 const usersRouter = require("express").Router();
@@ -22,10 +23,7 @@ usersRouter.patch("/:userID/pursuit", (req, res) => {
   res.status(200).send("all okay from GET /api/users/:userID/pursuit");
 });
 
-usersRouter.post("/password/:username", (req, res) => {
-  //NO CONTROLLER OR MODEL NOT YET MADE
-  res.status(200).send("all okay from GET /api/users/password/:username");
-});
+usersRouter.post("/login", postUsersAuth);
 
 usersRouter.post("/pursuits/points", postUsersPursuitPoints);
 

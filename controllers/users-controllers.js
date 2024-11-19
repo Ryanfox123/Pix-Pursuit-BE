@@ -1,3 +1,4 @@
+const { use } = require("../app.js");
 const {
   selectHostedPursuitByPursuitId,
   selectUserPursuitByPursuitId,
@@ -10,7 +11,10 @@ const {
   updateUsersPointsByUserId,
   updateUsersPursuitByUserId,
   insertUsersPursuitPoints,
+  insertUsersAuth,
+  selectUsersPWbyUsername,
 } = require("../models/users-models.js");
+const bcrypt = require("bcrypt");
 
 exports.getUsers = (req, res, next) => {
   selectUsers().then((users) => {
@@ -83,4 +87,23 @@ exports.postUsersPursuitPoints = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+};
+
+exports.postUsersAuth = async (req, res, next) => {
+  const { username, password } = req.body;
+  selectUsersPWbyUsername(username)
+    .then((encryptedPw) => {
+      return bcrypt.compare(password, encryptedPw.Password);
+    })
+    .then((result) => {
+      if (result) {
+        res.status(200).send({ msg: "Successfully logged in!" });
+      } else {
+        res.status(401).send({ msg: "Invalid username or password." });
+      }
+    })
+    .catch((err) => {
+      next(err);
+    });
+  return insertUsersAuth();
 };
