@@ -10,7 +10,7 @@ module.exports = [
     difficulty: "Easy",
     completions: 10,
     active: true,
-    createdAt: "2024-01-01T00:00:00Z",
+    createdAt: "2024-01-01T00:00:00.000Z",
     title: "Simple Hunt",
   },
   {

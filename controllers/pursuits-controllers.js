@@ -53,7 +53,7 @@ exports.getHostedPursuitByHostId = (req, res, next) => {
 exports.patchPursuitByPursuitId = (req, res, next) => {
   const { pursuitID } = req.params;
 
-  updatePursuitByPursuitId(pursuitID)
+  updatePursuitByPursuitId(pursuitID, req.body)
     .then((pursuit) => {
       res.status(200).send({ pursuit });
     })

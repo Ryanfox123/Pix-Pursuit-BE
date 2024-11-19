@@ -33,8 +33,18 @@ RETURNING *;
   });
 };
 
-exports.updatePursuitByPursuitId = (id) => {
-  return id;
+exports.updatePursuitByPursuitId = (id, { active }) => {
+  return db
+    .query(
+      `UPDATE pursuits
+      SET active = $2
+      WHERE pursuit_id = $1
+      RETURNING *`,
+      [id, active]
+    )
+    .then(({ rows }) => {
+      return rows[0];
+    });
 };
 
 exports.selectHostedPursuitByHostId = (id) => {
