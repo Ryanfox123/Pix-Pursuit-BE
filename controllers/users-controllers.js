@@ -1,8 +1,4 @@
-const { use } = require("../app.js");
-const {
-  selectHostedPursuitByPursuitId,
-  selectUserPursuitByPursuitId,
-} = require("../models/pursuits-model.js");
+const { selectUserPursuitByPursuitId } = require("../models/pursuits-model.js");
 const {
   selectUsers,
   insertUsers,

@@ -10,7 +10,7 @@ afterAll(() => db.end());
 describe("patch /api/users/:user_id/pursuit", () => {
   it("responds 200 - returns the user id and their updated current pursuit id", () => {
     return request(app)
-      .patch("/api/users/1/pursuit")
+      .patch("/api/usersToCurrentPursuit/1")
       .send({ newPursuit: 1 })
       .expect(200)
       .then(({ body: { currentPursuit } }) => {
@@ -20,7 +20,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 200 - returns the user id and their updated current pursuit id when setting the pursuit id to null", () => {
     return request(app)
-      .patch("/api/users/1/pursuit")
+      .patch("/api/usersToCurrentPursuit/1")
       .send({ newPursuit: null })
       .expect(200)
       .then(({ body: { currentPursuit } }) => {
@@ -30,7 +30,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 400 - returns an error message if the new pursuit is missing", () => {
     return request(app)
-      .patch("/api/users/1/pursuit")
+      .patch("/api/usersToCurrentPursuit/1")
       .send()
       .expect(400)
       .then(({ body: { msg } }) => {
@@ -39,7 +39,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 400 - returns an error message if the newPursuits is an invalid data type", () => {
     return request(app)
-      .patch("/api/users/1/pursuit")
+      .patch("/api/usersToCurrentPursuit/1")
       .send({ newPursuit: "string" })
       .expect(400)
       .then(({ body: { msg } }) => {
@@ -48,7 +48,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 404 - returns an error message if user id does not exist", () => {
     return request(app)
-      .patch("/api/users/999/pursuit")
+      .patch("/api/usersToCurrentPursuit/999")
       .send({ newPursuit: 1 })
       .expect(404)
       .then(({ body: { msg } }) => {
@@ -57,7 +57,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 400 - returns an error message if user id is an invalid type", () => {
     return request(app)
-      .patch("/api/users/invalidType/pursuit")
+      .patch("/api/usersToCurrentPursuit/invalidType")
       .send({ newPursuit: 1 })
       .expect(400)
       .then(({ body: { msg } }) => {
@@ -66,7 +66,7 @@ describe("patch /api/users/:user_id/pursuit", () => {
   });
   it("responds 404 - returns an error message if the newPursuit id does not exist", () => {
     return request(app)
-      .patch("/api/users/1/pursuit")
+      .patch("/api/usersToCurrentPursuit/1")
       .send({ newPursuit: 99 })
       .expect(404)
       .then(({ body: { msg } }) => {
