@@ -148,3 +148,23 @@ exports.insertUsersPursuitPoints = (body, placement) => {
     return points.rows[0].points;
   });
 };
+
+exports.insertUsersAuth = () => {};
+
+exports.selectUsersPWbyUsername = (username) => {
+  return db
+    .query(
+      `SELECT * FROM users
+  WHERE username = $1;`,
+      [username]
+    )
+    .then((user) => {
+      const userInfo = user.rows[0];
+      if (!userInfo) {
+        return Promise.reject({ status: 404, msg: "404: User not found" });
+      }
+      return {
+        Password: userInfo.password,
+      };
+    });
+};

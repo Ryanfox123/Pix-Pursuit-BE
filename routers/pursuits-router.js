@@ -4,11 +4,9 @@ const {
   getPursuits,
   postPursuit,
   getUserPursuitByPursuitId,
-  getHostedPursuitByPursuitId,
   patchPursuitByPursuitId,
   getHostedPursuitByHostId,
 } = require("../controllers/pursuits-controllers");
-const { selectPursuits } = require("../models/pursuits-model");
 
 purusitsRouter.route("/").get(getPursuits).post(postPursuit);
 

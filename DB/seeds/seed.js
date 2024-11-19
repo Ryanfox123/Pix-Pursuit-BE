@@ -1,24 +1,24 @@
 const db = require("../connection.js");
 const format = require("pg-format");
+const bcrypt = require("bcrypt");
 
 const seed = ({ usersData, huntsData, completionsData }) => {
-  let num = 1;
   return db
     .query(`DROP TABLE IF EXISTS completed_pursuits;`)
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS participants ;`);
+      return db.query(`DROP TABLE IF EXISTS participants;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS pursuits ;`);
+      return db.query(`DROP TABLE IF EXISTS pursuits;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS users CASCADE;`);
+      return db.query(`DROP TABLE IF EXISTS users;`);
     })
     .then(() => {
       return db.query(`CREATE TABLE users (
         user_ID SERIAL PRIMARY KEY,
         email VARCHAR(60) NOT NULL,
-        password VARCHAR(20) NOT NULL,
+        password VARCHAR(100) NOT NULL,
         username VARCHAR(20) NOT NULL,
         points INT DEFAULT 0
         );`);
@@ -53,16 +53,20 @@ const seed = ({ usersData, huntsData, completionsData }) => {
             )`);
     })
     .then(() => {
-      const insertIntoUsersQueryStr = format(
-        "INSERT INTO users (email, password, points, username) VALUES %L",
-        usersData.map(({ email, password, points, username }) => [
-          email,
-          password,
-          points,
-          username,
-        ])
+      const saltRounds = 4;
+      const promisedUsers = usersData.map(
+        ({ email, password, points, username }) =>
+          bcrypt.hash(password, saltRounds).then((encryptedPW) => {
+            return [email, encryptedPW, points, username];
+          })
       );
-      return db.query(insertIntoUsersQueryStr);
+      return Promise.all(promisedUsers).then((res) => {
+        const insertIntoUsersQueryStr = format(
+          "INSERT INTO users (email, password, points, username) VALUES %L",
+          res
+        );
+        return db.query(insertIntoUsersQueryStr);
+      });
     })
     .then(() => {
       const insertIntoPursuitsStr = format(
