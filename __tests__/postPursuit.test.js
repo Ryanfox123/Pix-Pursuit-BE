@@ -12,7 +12,7 @@ describe("Post /api/pursuits/", () => {
     return request(app)
       .post("/api/pursuits/")
       .send({
-        host_ID: 1,
+        host_ID: 5,
         image: "https://example.com/hunt1.jpg",
         targetLat: 41.7128,
         targetLong: -75.006,
@@ -32,7 +32,7 @@ describe("Post /api/pursuits/", () => {
     return request(app)
       .post("/api/pursuits/")
       .send({
-        host_ID: 1,
+        host_ID: 5,
         image: "https://example.com/hunt1.jpg",
         targetLat: 41.7128,
         active: true,

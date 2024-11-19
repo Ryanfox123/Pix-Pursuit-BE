@@ -1,7 +1,6 @@
 const db = require("../db/connection");
 const format = require("pg-format");
 
-
 exports.selectPursuits = () => {
   return db.query("SELECT * FROM pursuits;").then((res) => {
     return res.rows;
@@ -36,7 +35,25 @@ RETURNING *;
 
 exports.updatePursuitByPursuitId = () => {};
 
-exports.selectHostedPursuitByPursuitId = () => {};
+exports.selectHostedPursuitByHostId = (id) => {
+  console.log(id);
+  return db
+    .query(
+      `SELECT * FROM pursuits
+  WHERE host_ID = $1
+  AND active = true;`,
+      [id]
+    )
+    .then((res) => {
+      if (!res.rows[0]) {
+        return Promise.reject({
+          status: 404,
+          msg: "No active pursuits linked to this host",
+        });
+      }
+      return res.rows[0];
+    });
+};
 
 exports.selectUserPursuitByPursuitId = (id) => {
   return db

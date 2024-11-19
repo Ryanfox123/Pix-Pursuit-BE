@@ -1,6 +1,6 @@
 const {
   selectPursuits,
-  selectHostedPursuitByPursuitId,
+  selectHostedPursuitByHostId,
   selectUserPursuitByPursuitId,
   insertPursuit,
   updatePursuitByPursuitId,
@@ -23,7 +23,6 @@ exports.postPursuit = (req, res, next) => {
       res.status(200).send({ pursuit: pursuit });
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 };
@@ -39,8 +38,17 @@ exports.getUserPursuitByPursuitId = (req, res, next) => {
     });
 };
 
-exports.getHostedPursuitByPursuitId = (req, res, next) => {
-  //use selectHostedPursuitByPursuitId in here
+exports.getHostedPursuitByHostId = (req, res, next) => {
+  const { hostID } = req.params;
+  console.log(hostID);
+  selectHostedPursuitByHostId(hostID)
+    .then((pursuit) => {
+      res.status(200).send({ pursuit: pursuit });
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
 };
 
 exports.patchPursuitByPursuitId = (req, res, next) => {
