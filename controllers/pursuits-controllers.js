@@ -17,7 +17,15 @@ exports.getPursuits = (req, res, next) => {
 };
 
 exports.postPursuit = (req, res, next) => {
-  //use insertPursuit in here
+  const body = req.body;
+  insertPursuit(body)
+    .then((pursuit) => {
+      res.status(200).send({ pursuit: pursuit });
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
 };
 
 exports.getUserPursuitByPursuitId = (req, res, next) => {

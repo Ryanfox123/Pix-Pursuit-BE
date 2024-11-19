@@ -1,6 +1,5 @@
-
 const format = require("pg-format");
-const db = require("../DB/connection.js");
+const db = require("../db/connection.js");
 
 exports.selectUsers = () => {
   const queryStr = `SELECT * FROM users`;

@@ -7,7 +7,11 @@ exports.customErrors = (err, req, res, next) => {
 };
 
 exports.sqlErrors = (err, req, res, next) => {
-  console.log("hi");
+  if (err.code === "23502") {
+    return res
+      .status(400)
+      .send({ msg: "Bad request: You are missing body information" });
+  }
   if (err.code === "22P02") {
     return res.status(400).send({ msg: "400: Invalid request" });
   }

@@ -1,4 +1,5 @@
-const db = require("../DB/connection");
+const db = require("../db/connection");
+const format = require("pg-format");
 
 exports.selectPursuits = () => {
   return db.query("SELECT * FROM pursuits;").then((res) => {
@@ -6,7 +7,31 @@ exports.selectPursuits = () => {
   });
 };
 
-exports.insertPursuit = () => {};
+exports.insertPursuit = (body) => {
+  const newBody = [
+    body.host_ID,
+    body.image,
+    body.targetLat,
+    body.targetLong,
+    body.randomLat,
+    body.randomLong,
+    body.difficulty,
+    body.active,
+    body.title,
+  ];
+  const postPursuitStr = format(
+    `INSERT INTO pursuits 
+(host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, title)
+VALUES %L
+RETURNING *;
+`,
+    [newBody]
+  );
+
+  return db.query(postPursuitStr).then((response) => {
+    return response.rows[0];
+  });
+};
 
 exports.updatePursuitByPursuitId = () => {};
 
