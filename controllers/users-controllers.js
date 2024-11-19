@@ -70,8 +70,16 @@ exports.patchUsersPointsByUserId = (req, res, next) => {
     });
 };
 
-exports.patchUsersPursuitByUserId = () => {
-  //use updateUsersPursuitByUserId in here
+exports.patchUsersPursuitByUserId = (req, res, next) => {
+  const { userID } = req.params;
+
+  updateUsersPursuitByUserId(userID, req.body)
+    .then((currentPursuit) => {
+      res.status(200).send({ currentPursuit });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.postUsersPursuitPoints = (req, res, next) => {
