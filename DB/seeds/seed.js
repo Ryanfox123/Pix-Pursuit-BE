@@ -3,12 +3,12 @@ const format = require("pg-format");
 
 const seed = ({ usersData, huntsData, completionsData }) => {
   return db
-    .query(`DROP TABLE IF EXISTS pursuits CASCADE;`)
+    .query(`DROP TABLE IF EXISTS completed_pursuits;`)
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS completed_pursuits CASCADE;`);
+      return db.query(`DROP TABLE IF EXISTS participants ;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS participants CASCADE;`);
+      return db.query(`DROP TABLE IF EXISTS pursuits ;`);
     })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS users CASCADE`);
