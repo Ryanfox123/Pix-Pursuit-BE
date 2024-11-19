@@ -2,16 +2,17 @@ const db = require("../connection.js");
 const format = require("pg-format");
 
 const seed = ({ usersData, huntsData, completionsData }) => {
+  let num = 1;
   return db
-    .query(`DROP TABLE IF EXISTS pursuits CASCADE;`)
+    .query(`DROP TABLE IF EXISTS completed_pursuits;`)
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS completed_pursuits CASCADE;`);
+      return db.query(`DROP TABLE IF EXISTS participants;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS participants CASCADE;`);
+      return db.query(`DROP TABLE IF EXISTS pursuits;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS users CASCADE`);
+      return db.query(`DROP TABLE IF EXISTS users`);
     })
     .then(() => {
       return db.query(`CREATE TABLE users (

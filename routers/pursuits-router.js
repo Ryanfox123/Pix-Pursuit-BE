@@ -24,9 +24,6 @@ purusitsRouter.get("/:pursuitID/host", (req, res) => {
   res.status(200).send("all okay from GET /api/:pursuitID/host");
 });
 
-purusitsRouter.patch("/:pursuitID", (req, res) => {
-  //use patchPursuitByPursuitId
-  res.status(200).send("all okay from PATCH /api/:pursuitID");
-});
+purusitsRouter.patch("/:pursuitID", patchPursuitByPursuitId);
 
 module.exports = purusitsRouter;

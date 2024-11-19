@@ -8,7 +8,9 @@ exports.selectPursuits = () => {
 
 exports.insertPursuit = () => {};
 
-exports.updatePursuitByPursuitId = () => {};
+exports.updatePursuitByPursuitId = (id) => {
+  return id;
+};
 
 exports.selectHostedPursuitByPursuitId = () => {};
 
