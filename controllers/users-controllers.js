@@ -1,4 +1,8 @@
 const {
+  selectHostedPursuitByPursuitId,
+  selectUserPursuitByPursuitId,
+} = require("../models/pursuits-model.js");
+const {
   selectUsers,
   insertUsers,
   selectUsersByUsername,
@@ -15,7 +19,13 @@ exports.getUsers = (req, res, next) => {
 };
 
 exports.postUsers = (req, res, next) => {
-  //use insertUsers in here
+  insertUsers(req.body)
+    .then((user) => {
+      res.status(201).send({ user });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.getUsersbyUsername = (req, res, next) => {
@@ -25,17 +35,35 @@ exports.getUsersbyUsername = (req, res, next) => {
       res.status(200).send({ user: user });
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 };
 
-exports.getUsersPointsbyPursuitId = (req, res, next) => {
-  //use selectUsersPointsByPursuitID in here
+exports.getUsersPointsByPursuitId = (req, res, next) => {
+  const { pursuitId } = req.params;
+
+  selectUserPursuitByPursuitId(pursuitId)
+    .then(() => {
+      selectUsersPointsByPursuitId(pursuitId).then((users) => {
+        res.status(200).send({ users });
+      });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.patchUsersPointsByUserId = (req, res, next) => {
-  // Use updateUsersPointsByUserId in here
+  const { userID } = req.params;
+  const { body } = req;
+  const { inc_points } = body;
+  updateUsersPointsByUserId(userID, inc_points)
+    .then((user) => {
+      res.status(200).send({ user: user });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.patchUsersPursuitByUserId = () => {

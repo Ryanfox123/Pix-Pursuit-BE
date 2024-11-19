@@ -1,6 +1,7 @@
 const db = require("../db/connection");
 const format = require("pg-format");
 
+
 exports.selectPursuits = () => {
   return db.query("SELECT * FROM pursuits;").then((res) => {
     return res.rows;

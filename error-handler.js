@@ -7,6 +7,7 @@ exports.customErrors = (err, req, res, next) => {
 };
 
 exports.sqlErrors = (err, req, res, next) => {
+
   if (err.code === "23502") {
     return res
       .status(400)

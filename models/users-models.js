@@ -8,7 +8,27 @@ exports.selectUsers = () => {
   });
 };
 
-exports.insertUsers = () => {};
+exports.insertUsers = ({ username, email, password }) => {
+  if (!username || !email || !password) {
+    return Promise.reject({ status: 400, msg: "invalid request body" });
+  }
+  return db
+    .query(
+      `
+        INSERT INTO users 
+        (username, email, password)
+        VALUES
+        ($1,
+        $2,
+        $3)
+        RETURNING *
+        `,
+      [username, email, password]
+    )
+    .then(({ rows }) => {
+      return rows[0];
+    });
+};
 
 exports.selectUsersByUsername = (username) => {
   return db
@@ -30,9 +50,52 @@ exports.selectUsersByUsername = (username) => {
     });
 };
 
-exports.selectUsersPointsByPursuitId = () => {};
+exports.selectUsersPointsByPursuitId = (id) => {
+  return db
+    .query(
+      `SELECT username, completed_pursuits.points FROM users
+    JOIN completed_pursuits ON users.user_ID = completed_pursuits.user_ID
+    ORDER BY points DESC
+    LIMIT 3
+    `
+    )
+    .then(({ rows }) => {
+      return rows;
+    });
+};
 
-exports.updateUsersPointsByUserId = () => {};
+exports.updateUsersPointsByUserId = (userID, inc_points) => {
+  return Promise.all([
+    inc_points,
+    db.query(
+      `
+            SELECT user_ID, points FROM users
+            WHERE user_ID = $1
+            `,
+      [userID]
+    ),
+  ])
+    .then(([inc_points, { rows }]) => {
+      if (!rows.length) {
+        return Promise.reject({ status: 404, msg: "user_id is invalid" });
+      }
+      const user = rows[0];
+      const newPoints = inc_points + user.points;
+      return db.query(
+        `
+        UPDATE users
+        SET points = $1
+        WHERE user_ID = $2
+        RETURNING *
+        `,
+        [newPoints, user.user_id]
+      );
+    })
+    .then(({ rows }) => {
+      const user = rows[0];
+      return { username: user.username, points: user.points };
+    });
+};
 
 exports.updateUsersPursuitByUserId = () => {};
 
