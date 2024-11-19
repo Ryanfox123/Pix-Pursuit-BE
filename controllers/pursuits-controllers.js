@@ -27,7 +27,6 @@ exports.getUserPursuitByPursuitId = (req, res, next) => {
       res.status(200).send({ pursuit: pursuit });
     })
     .catch((err) => {
-      console.log(err.code);
       next(err);
     });
 };

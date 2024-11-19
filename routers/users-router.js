@@ -1,6 +1,7 @@
 const {
-  getUsersbyUsername,
   patchUsersPointsByUserId,
+  getUsersPointsByPursuitId,
+  getUsersbyUsername,
 } = require("../controllers/users-controllers");
 
 const usersRouter = require("express").Router();
@@ -17,10 +18,7 @@ usersRouter
 
 usersRouter.get("/:username", getUsersbyUsername);
 
-usersRouter.get("/points/:pursuitID", (req, res) => {
-  // use getUsersPointsbyPursuitId in here
-  res.status(200).send("all okay from GET /api/users/points/:pursuitID");
-});
+usersRouter.get("/points/:pursuitId", getUsersPointsByPursuitId);
 
 usersRouter.patch("/:userID/points", patchUsersPointsByUserId);
 
