@@ -99,7 +99,32 @@ exports.updateUsersPointsByUserId = (userID, inc_points) => {
     });
 };
 
-exports.updateUsersPursuitByUserId = () => {};
+exports.updateUsersPursuitByUserId = (id, { newPursuit }) => {
+  if (newPursuit === undefined) {
+    return Promise.reject({
+      status: 400,
+      msg: "request must include newPursuit",
+    });
+  }
+  return db
+    .query(`SELECT * FROM users WHERE user_id = $1`, [id])
+    .then(({ rows }) => {
+      if (rows.length === 0) {
+        return Promise.reject({ status: 404, msg: "user does not exist" });
+      }
+      return db.query(
+        `
+    UPDATE participants
+    SET pursuit_id = $1
+    WHERE user_id = $2
+    RETURNING *`,
+        [newPursuit, id]
+      );
+    })
+    .then(({ rows }) => {
+      return rows[0];
+    });
+};
 
 exports.insertUsersPursuitPoints = (body, placement) => {
   const pointsChart = {

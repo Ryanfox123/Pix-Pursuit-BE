@@ -4,7 +4,7 @@ module.exports = [
     email: "user1@example.com",
     password: "pass123",
     points: 100,
-    pursuitID: 1,
+    pursuitID: null,
     username: "user1",
   },
   {

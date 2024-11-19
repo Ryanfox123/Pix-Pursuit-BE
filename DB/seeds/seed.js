@@ -42,7 +42,7 @@ const seed = ({ usersData, huntsData, completionsData }) => {
     .then(() => {
       return db.query(`CREATE TABLE participants (
             user_ID INT REFERENCES users(user_ID) NOT NULL,
-            pursuit_ID INT REFERENCES pursuits(pursuit_ID) NOT NULL
+            pursuit_ID INT REFERENCES pursuits(pursuit_ID) DEFAULT NULL
             )`);
     })
     .then(() => {
