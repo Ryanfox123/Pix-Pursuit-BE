@@ -9,7 +9,7 @@ const {
   selectUsersPointsByPursuitId,
   updateUsersPointsByUserId,
   updateUsersPursuitByUserId,
-  inserUsersPursuitPoints,
+  insertUsersPursuitPoints,
 } = require("../models/users-models.js");
 
 exports.getUsers = (req, res, next) => {
@@ -70,6 +70,17 @@ exports.patchUsersPursuitByUserId = () => {
   //use updateUsersPursuitByUserId in here
 };
 
-exports.postUsersPursuitPoints = () => {
-  //use inserUsersPursuitPoints in here
+exports.postUsersPursuitPoints = (req, res, next) => {
+  const body = req.body;
+  selectUsersPointsByPursuitId(body.pursuit_id)
+    .then((winners) => {
+      const placement = winners.length;
+      return insertUsersPursuitPoints(body, placement);
+    })
+    .then((points) => {
+      res.status(200).send({ points: points });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };

@@ -55,9 +55,11 @@ exports.selectUsersPointsByPursuitId = (id) => {
     .query(
       `SELECT username, completed_pursuits.points FROM users
     JOIN completed_pursuits ON users.user_ID = completed_pursuits.user_ID
+    WHERE pursuit_id = $1
     ORDER BY points DESC
-    LIMIT 3
-    `
+    LIMIT 3;
+    `,
+      [id]
     )
     .then(({ rows }) => {
       return rows;
@@ -99,4 +101,25 @@ exports.updateUsersPointsByUserId = (userID, inc_points) => {
 
 exports.updateUsersPursuitByUserId = () => {};
 
-exports.inserUsersPursuitPoints = () => {};
+exports.insertUsersPursuitPoints = (body, placement) => {
+  const pointsChart = {
+    0: 50,
+    1: 25,
+    2: 10,
+  };
+  const newBody = [
+    body.pursuit_id,
+    body.user_id,
+    placement > 2 ? 5 : pointsChart[placement],
+  ];
+  const postStr = format(
+    `INSERT INTO completed_pursuits
+  (pursuit_id, user_id, points)
+  VALUES %L
+  RETURNING *;`,
+    [newBody]
+  );
+  return db.query(postStr).then((points) => {
+    return points.rows[0].points;
+  });
+};
