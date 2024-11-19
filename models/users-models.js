@@ -44,7 +44,39 @@ exports.selectUsersPointsByPursuitId = (id) => {
     });
 };
 
-exports.updateUsersPointsByUserId = () => {};
+exports.updateUsersPointsByUserId = (userID, inc_points) => {
+  console.log(userID, inc_points);
+  return Promise.all([
+    inc_points,
+    db.query(
+      `
+            SELECT user_ID, points FROM users
+            WHERE user_ID = $1
+            `,
+      [userID]
+    ),
+  ])
+    .then(([inc_points, { rows }]) => {
+      if (!rows.length) {
+        return Promise.reject({ status: 404, msg: "user_id is invalid" });
+      }
+      const user = rows[0];
+      const newPoints = inc_points + user.points;
+      return db.query(
+        `
+        UPDATE users
+        SET points = $1
+        WHERE user_ID = $2
+        RETURNING *
+        `,
+        [newPoints, user.user_id]
+      );
+    })
+    .then(({ rows }) => {
+      const user = rows[0];
+      return { username: user.username, points: user.points };
+    });
+};
 
 exports.updateUsersPursuitByUserId = () => {};
 
