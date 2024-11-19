@@ -1,5 +1,5 @@
-const seed = require(".db/seed");
-const db = require("..db/connection.js");
+const seed = require("./seed.js");
+const db = require("../connection.js");
 const devData = require("../data/devData/index.js");
 
 const runSeed = () => {
