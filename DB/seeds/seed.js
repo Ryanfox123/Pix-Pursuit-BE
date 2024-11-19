@@ -2,6 +2,7 @@ const db = require("../connection.js");
 const format = require("pg-format");
 
 const seed = ({ usersData, huntsData, completionsData }) => {
+  let num = 1;
   return db
     .query(`DROP TABLE IF EXISTS completed_pursuits;`)
     .then(() => {

@@ -40,6 +40,7 @@ exports.getUserPursuitByPursuitId = (req, res, next) => {
 
 exports.getHostedPursuitByHostId = (req, res, next) => {
   const { hostID } = req.params;
+
   selectHostedPursuitByHostId(hostID)
     .then((pursuit) => {
       res.status(200).send({ pursuit: pursuit });
@@ -50,5 +51,13 @@ exports.getHostedPursuitByHostId = (req, res, next) => {
 };
 
 exports.patchPursuitByPursuitId = (req, res, next) => {
-  //use updatePursuitByPursuitId in here
+  const { pursuitID } = req.params;
+
+  updatePursuitByPursuitId(pursuitID, req.body)
+    .then((pursuit) => {
+      res.status(200).send({ pursuit });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };

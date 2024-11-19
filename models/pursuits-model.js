@@ -33,7 +33,28 @@ RETURNING *;
   });
 };
 
-exports.updatePursuitByPursuitId = () => {};
+exports.updatePursuitByPursuitId = (id, { active }) => {
+  if (active && typeof active !== "boolean") {
+    return Promise.reject({ status: 400, msg: "active my be type bool" });
+  }
+  return db
+    .query(
+      `UPDATE pursuits
+      SET active = $2
+      WHERE pursuit_id = $1
+      RETURNING *`,
+      [id, active]
+    )
+    .then(({ rows }) => {
+      if (rows.length === 0) {
+        return Promise.reject({
+          status: 404,
+          msg: "404: Pursuit does not exist",
+        });
+      }
+      return rows[0];
+    });
+};
 
 exports.selectHostedPursuitByHostId = (id) => {
   return db
