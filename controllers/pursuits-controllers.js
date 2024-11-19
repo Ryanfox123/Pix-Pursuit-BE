@@ -40,13 +40,11 @@ exports.getUserPursuitByPursuitId = (req, res, next) => {
 
 exports.getHostedPursuitByHostId = (req, res, next) => {
   const { hostID } = req.params;
-  console.log(hostID);
   selectHostedPursuitByHostId(hostID)
     .then((pursuit) => {
       res.status(200).send({ pursuit: pursuit });
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 };
