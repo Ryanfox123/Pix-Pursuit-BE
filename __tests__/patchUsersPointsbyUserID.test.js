@@ -43,7 +43,6 @@ describe("PATCH /api/users/:userID/points", () => {
       .send({})
       .expect(400)
       .then(({ body }) => {
-        console.log(body);
         expect(body.msg).toBe("400: Invalid request");
       });
   });

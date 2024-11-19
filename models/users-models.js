@@ -45,7 +45,6 @@ exports.selectUsersPointsByPursuitId = (id) => {
 };
 
 exports.updateUsersPointsByUserId = (userID, inc_points) => {
-  console.log(userID, inc_points);
   return Promise.all([
     inc_points,
     db.query(
