@@ -1,5 +1,5 @@
 const {
-  getUsersPointsbyPursuitId,
+  getUsersPointsByPursuitId,
   getUsersbyUsername,
 } = require("../controllers/users-controllers");
 
@@ -11,7 +11,7 @@ usersRouter.route("/").get(getUsers).post(postUsers);
 
 usersRouter.get("/:username", getUsersbyUsername);
 
-usersRouter.get("/points/:pursuitId", getUsersPointsbyPursuitId);
+usersRouter.get("/points/:pursuitId", getUsersPointsByPursuitId);
 
 usersRouter.patch("/:userID/points", (req, res) => {
   //use patchUsersPointsByUserId in here

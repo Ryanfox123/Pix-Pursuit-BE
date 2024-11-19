@@ -1,4 +1,8 @@
 const {
+  selectHostedPursuitByPursuitId,
+  selectUserPursuitByPursuitId,
+} = require("../models/pursuits-model.js");
+const {
   selectUsers,
   insertUsers,
   selectUsersByUsername,
@@ -31,16 +35,22 @@ exports.getUsersbyUsername = (req, res, next) => {
       res.status(200).send({ user: user });
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 };
 
-exports.getUsersPointsbyPursuitId = (req, res, next) => {
-  const { id } = req.params;
-  selectUsersPointsByPursuitId(id).then((users) => {
-    res.status(200).send({ users });
-  });
+exports.getUsersPointsByPursuitId = (req, res, next) => {
+  const { pursuitId } = req.params;
+
+  selectUserPursuitByPursuitId(pursuitId)
+    .then(() => {
+      selectUsersPointsByPursuitId(pursuitId).then((users) => {
+        res.status(200).send({ users });
+      });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.patchUsersPointsByUserId = (req, res, next) => {

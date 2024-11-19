@@ -8,7 +8,7 @@ beforeEach(() => seed(data));
 afterAll(() => db.end());
 
 describe("/api/users/points/:pursuitId", () => {
-  it.only("responds 200 - returns an array of 3 user objects with properties username and points", () => {
+  it("responds 200 - returns an array of 3 user objects with properties username and points", () => {
     return request(app)
       .get("/api/users/points/1")
       .expect(200)
@@ -28,12 +28,12 @@ describe("/api/users/points/:pursuitId", () => {
         expect(users).toBeSorted({ descending: true, key: "points" });
       });
   });
-  it("responds 400 - returns an error message if the pursuit id is a valid type but does not exist", () => {
+  it("responds 404 - returns an error message if the pursuit id is a valid type but does not exist", () => {
     return request(app)
       .get("/api/users/points/999")
-      .expect(400)
+      .expect(404)
       .then(({ body: { msg } }) => {
-        expect(msg).toBe("pursuit does not exist");
+        expect(msg).toBe("404: Pursuit not found");
       });
   });
   it("responds 400 - returns an error message if the pursuit id is an invalid type", () => {
@@ -41,7 +41,7 @@ describe("/api/users/points/:pursuitId", () => {
       .get("/api/users/points/invalidId")
       .expect(400)
       .then(({ body: { msg } }) => {
-        expect(msg).toBe("pursuit does not exist");
+        expect(msg).toBe("400: Invalid request");
       });
   });
 });
