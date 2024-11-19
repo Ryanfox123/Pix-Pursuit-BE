@@ -2,6 +2,7 @@ const {
   patchUsersPointsByUserId,
   getUsersPointsByPursuitId,
   getUsersbyUsername,
+  postUsersPursuitPoints,
 } = require("../controllers/users-controllers");
 
 const usersRouter = require("express").Router();
@@ -26,9 +27,6 @@ usersRouter.post("/password/:username", (req, res) => {
   res.status(200).send("all okay from GET /api/users/password/:username");
 });
 
-usersRouter.post("/pursuits/points", (req, res) => {
-  //use postUsersPursuitPoints in here
-  res.status(200).send("all okay from GET /api/users/pursuits/points");
-});
+usersRouter.post("/pursuits/points", postUsersPursuitPoints);
 
 module.exports = usersRouter;

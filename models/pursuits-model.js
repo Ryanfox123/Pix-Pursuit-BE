@@ -36,7 +36,6 @@ RETURNING *;
 exports.updatePursuitByPursuitId = () => {};
 
 exports.selectHostedPursuitByHostId = (id) => {
-  console.log(id);
   return db
     .query(
       `SELECT * FROM pursuits

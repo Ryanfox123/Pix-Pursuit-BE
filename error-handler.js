@@ -12,6 +12,9 @@ exports.sqlErrors = (err, req, res, next) => {
       .status(400)
       .send({ msg: "Bad request: You are missing body information" });
   }
+  if (err.code === "23503") {
+    return res.status(404).send({ msg: "404: Item not found" });
+  }
   if (err.code === "22P02") {
     return res.status(400).send({ msg: "400: Invalid request" });
   }
