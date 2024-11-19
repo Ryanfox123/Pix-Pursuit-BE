@@ -6,13 +6,13 @@ const seed = ({ usersData, huntsData, completionsData }) => {
   return db
     .query(`DROP TABLE IF EXISTS completed_pursuits;`)
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS participants;`);
+      return db.query(`DROP TABLE IF EXISTS participants ;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS pursuits;`);
+      return db.query(`DROP TABLE IF EXISTS pursuits ;`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS users`);
+      return db.query(`DROP TABLE IF EXISTS users CASCADE;`);
     })
     .then(() => {
       return db.query(`CREATE TABLE users (
