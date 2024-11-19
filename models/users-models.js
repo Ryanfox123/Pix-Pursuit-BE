@@ -8,7 +8,27 @@ exports.selectUsers = () => {
   });
 };
 
-exports.insertUsers = () => {};
+exports.insertUsers = ({ username, email, password }) => {
+  if (!username || !email || !password) {
+    return Promise.reject({ status: 400, msg: "invalid request body" });
+  }
+  return db
+    .query(
+      `
+        INSERT INTO users 
+        (username, email, password)
+        VALUES
+        ($1,
+        $2,
+        $3)
+        RETURNING *
+        `,
+      [username, email, password]
+    )
+    .then(({ rows }) => {
+      return rows[0];
+    });
+};
 
 exports.selectUsersByUsername = (username) => {
   return db
