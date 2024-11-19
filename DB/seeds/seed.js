@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt");
 
 const seed = ({ usersData, huntsData, completionsData }) => {
   return db
-    .query(`DROP TABLE IF EXISTS completed_pursuits;`)
+    .query(`DROP TABLE IF EXISTS pursuitsCompletedByUsers;`)
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS participants;`);
+      return db.query(`DROP TABLE IF EXISTS usersToCurrentPursuit;`);
     })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS pursuits;`);
@@ -40,13 +40,13 @@ const seed = ({ usersData, huntsData, completionsData }) => {
         );`);
     })
     .then(() => {
-      return db.query(`CREATE TABLE participants (
+      return db.query(`CREATE TABLE usersToCurrentPursuit (
             user_ID INT REFERENCES users(user_ID) NOT NULL,
             pursuit_ID INT REFERENCES pursuits(pursuit_ID) DEFAULT NULL
             )`);
     })
     .then(() => {
-      return db.query(`CREATE TABLE completed_pursuits (
+      return db.query(`CREATE TABLE pursuitsCompletedByUsers (
             pursuit_ID INT REFERENCES pursuits(pursuit_ID) DEFAULT NULL,
             user_ID INT REFERENCES users(user_ID) NOT NULL,
             points INT NOT NULL
@@ -103,14 +103,14 @@ const seed = ({ usersData, huntsData, completionsData }) => {
     })
     .then(() => {
       const insertIntoParticipants = format(
-        "INSERT INTO participants (user_ID, pursuit_ID) VALUES %L",
+        "INSERT INTO usersToCurrentPursuit (user_ID, pursuit_ID) VALUES %L",
         usersData.map(({ ID, pursuitID }) => [ID, pursuitID])
       );
       return db.query(insertIntoParticipants);
     })
     .then(() => {
       const insertIntoCompletions = format(
-        "INSERT INTO completed_pursuits (pursuit_ID, user_ID, points) VALUES %L",
+        "INSERT INTO pursuitsCompletedByUsers (pursuit_ID, user_ID, points) VALUES %L",
         completionsData.map(({ pursuit_id, user_id, points }) => [
           pursuit_id,
           user_id,

@@ -53,8 +53,8 @@ exports.selectUsersByUsername = (username) => {
 exports.selectUsersPointsByPursuitId = (id) => {
   return db
     .query(
-      `SELECT username, completed_pursuits.points FROM users
-    JOIN completed_pursuits ON users.user_ID = completed_pursuits.user_ID
+      `SELECT username, pursuitsCompletedByUsers.points FROM users
+    JOIN pursuitsCompletedByUsers ON users.user_ID = pursuitsCompletedByUsers.user_ID
     WHERE pursuit_id = $1
     ORDER BY points DESC
     LIMIT 3;
@@ -114,7 +114,7 @@ exports.updateUsersPursuitByUserId = (id, { newPursuit }) => {
       }
       return db.query(
         `
-    UPDATE participants
+    UPDATE usersToCurrentPursuit
     SET pursuit_id = $1
     WHERE user_id = $2
     RETURNING *`,
@@ -138,7 +138,7 @@ exports.insertUsersPursuitPoints = (body, placement) => {
     placement > 2 ? 5 : pointsChart[placement],
   ];
   const postStr = format(
-    `INSERT INTO completed_pursuits
+    `INSERT INTO pursuitsCompletedByUsers
   (pursuit_id, user_id, points)
   VALUES %L
   RETURNING *;`,
