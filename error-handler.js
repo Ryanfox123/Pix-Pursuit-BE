@@ -15,6 +15,9 @@ exports.sqlErrors = (err, req, res, next) => {
   if (err.code === "22P02") {
     return res.status(400).send({ msg: "400: Invalid request" });
   }
-  console.log("uncaught error >> ", err);
+
+  console.log("\u001b[1;41m uncaught error >>", err);
+  console.log("\u001b[0m");
+
   res.status(500).send({});
 };
