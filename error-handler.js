@@ -7,7 +7,6 @@ exports.customErrors = (err, req, res, next) => {
 };
 
 exports.sqlErrors = (err, req, res, next) => {
-
   if (err.code === "23502") {
     return res
       .status(400)
@@ -16,4 +15,6 @@ exports.sqlErrors = (err, req, res, next) => {
   if (err.code === "22P02") {
     return res.status(400).send({ msg: "400: Invalid request" });
   }
+  console.log("uncaught error >> ", err);
+  res.status(500).send({});
 };
