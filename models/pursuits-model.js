@@ -1,4 +1,4 @@
-const db = require("../db/connection.js");
+const db = require("../DB/connection");
 const format = require("pg-format");
 
 exports.selectPursuits = () => {

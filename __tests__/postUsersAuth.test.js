@@ -1,9 +1,9 @@
 const exp = require("constants");
 const app = require("../app");
-const db = require("../db/connection");
 const data = require("../db/data/testData/index.js");
-const seed = require("../db/seeds/seed.js");
 const request = require("supertest");
+const db = require("../DB/connection");
+const seed = require("../DB/seeds/seed");
 
 beforeEach(() => seed(data));
 afterAll(() => db.end());

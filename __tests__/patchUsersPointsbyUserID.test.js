@@ -1,9 +1,9 @@
 const app = require("../app.js");
 const request = require("supertest");
-const db = require("../db/connection.js");
-const seed = require("../db/seeds/seed.js");
+const db = require("../DB/connection");
+const seed = require("../DB/seeds/seed");
 const data = require("../db/data/testData/index.js");
-//new commit
+
 beforeEach(() => seed(data));
 afterAll(() => db.end());
 
