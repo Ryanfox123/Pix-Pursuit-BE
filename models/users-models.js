@@ -2,7 +2,7 @@ const format = require("pg-format");
 const db = require("../DB/connection");
 
 exports.selectUsers = () => {
-  const queryStr = `SELECT * FROM users`;
+  const queryStr = `SELECT * FROM users ORDER BY points DESC`;
   return db.query(queryStr).then(({ rows }) => {
     return rows;
   });

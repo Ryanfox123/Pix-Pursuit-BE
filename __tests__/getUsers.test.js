@@ -24,4 +24,12 @@ describe("GET /api/users", () => {
         });
       });
   });
+  test("200 sends an array of all the users ordered by points descending", () => {
+    return request(app)
+      .get("/api/users")
+      .expect(200)
+      .then(({ body: { users } }) => {
+        expect(users).toBeSorted({ key: "points", descending: true });
+      });
+  });
 });
