@@ -7,7 +7,8 @@ const {
 } = require("../models/pursuits-model");
 
 exports.getPursuits = (req, res, next) => {
-  selectPursuits()
+  const { lat, long } = req.query;
+  selectPursuits(lat, long)
     .then((pursuits) => {
       res.status(200).send({ pursuits: pursuits });
     })

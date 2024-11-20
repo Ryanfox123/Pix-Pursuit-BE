@@ -4,6 +4,10 @@
   },
   "GET /api/pursuits": {
     "description": "returns an array of all the pursuits",
+    "queries": {
+      "lat": "current latitiude as a number",
+      "long": "current longitude as a number"
+    },
     "exampleResponse": {
       "pursuits": [
         {

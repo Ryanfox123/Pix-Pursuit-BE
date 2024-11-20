@@ -8,11 +8,10 @@ beforeEach(() => seed(data));
 afterAll(() => db.end());
 
 describe("/api/pursuits", () => {
-  test.only("should return an array of pursuits, each of which should have a ", () => {
+  test("should return an array of pursuits, each of which should have a ", () => {
     return request(app)
       .get("/api/pursuits")
       .expect(200)
-
       .then(({ body }) => {
         expect(body.pursuits).toEqual(expect.any(Array));
         expect(Object.keys(body.pursuits[0].length === 12));
@@ -28,6 +27,14 @@ describe("/api/pursuits", () => {
           expect(typeof pursuit.created_at).toBe("string");
           expect(typeof pursuit.title).toBe("string");
         });
+      });
+  });
+  test("should return an array of pursuits withing 20km of given lat and long ", () => {
+    return request(app)
+      .get("/api/pursuits?lat=40.7128&long=-74.006")
+      .expect(200)
+      .then(({ body: { pursuits } }) => {
+        expect(pursuits.length).toBe(1);
       });
   });
 });

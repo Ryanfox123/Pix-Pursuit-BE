@@ -1,8 +1,17 @@
 const db = require("../DB/connection");
 const format = require("pg-format");
 
-exports.selectPursuits = () => {
-  return db.query("SELECT * FROM pursuits;").then((res) => {
+exports.selectPursuits = (lat, long) => {
+  let queryStr = "SELECT * FROM pursuits";
+  let queryArr = [];
+
+  if (Number(lat) && Number(long)) {
+    queryStr += ` WHERE target_lat BETWEEN ${Number(lat) - 0.2} and ${
+      Number(lat) + 0.2
+    } AND target_long BETWEEN ${Number(long) - 0.2} and ${Number(long) + 0.2}`;
+  }
+
+  return db.query(queryStr).then((res) => {
     return res.rows;
   });
 };
