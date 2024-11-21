@@ -23,7 +23,7 @@ describe("GET /pursuits/:hostID/host", () => {
           random_lat: 40.71,
           random_long: -74.01,
           difficulty: "Easy",
-          completions: 10,
+          completions: 3,
           active: true,
           created_at: "2024-01-01T00:00:00.000Z",
           title: "Simple Hunt",

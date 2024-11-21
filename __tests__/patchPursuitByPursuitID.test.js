@@ -22,7 +22,6 @@ describe("patch /pursuits/:pursuitID", () => {
         expect(pursuit.random_lat).toBe(40.71);
         expect(pursuit.random_long).toBe(-74.01);
         expect(pursuit.difficulty).toBe("Easy");
-        expect(pursuit.completions).toBe(10);
         expect(pursuit.active).toBe(false);
         expect(pursuit.title).toBe("Simple Hunt");
       });

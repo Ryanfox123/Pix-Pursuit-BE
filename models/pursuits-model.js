@@ -2,14 +2,18 @@ const db = require("../DB/connection");
 const format = require("pg-format");
 
 exports.selectPursuits = (lat, long) => {
-  let queryStr = "SELECT * FROM pursuits";
-  let queryArr = [];
+  let queryStr = `SELECT pursuits.pursuit_ID, host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, CAST(COUNT(pursuitsCompletedByUsers.pursuit_ID) as integer) AS completions  FROM pursuits 
+  JOIN pursuitsCompletedByUsers ON pursuitsCompletedByUsers.pursuit_ID = pursuits.pursuit_ID
+  `;
 
   if (Number(lat) && Number(long)) {
     queryStr += ` WHERE target_lat BETWEEN ${Number(lat) - 0.2} and ${
       Number(lat) + 0.2
-    } AND target_long BETWEEN ${Number(long) - 0.2} and ${Number(long) + 0.2}`;
+    } AND target_long BETWEEN ${Number(long) - 0.2} and ${Number(long) + 0.2}
+    `;
   }
+
+  queryStr += " GROUP BY pursuits.pursuit_ID";
 
   return db.query(queryStr).then((res) => {
     return res.rows;
@@ -68,9 +72,11 @@ exports.updatePursuitByPursuitId = (id, { active }) => {
 exports.selectHostedPursuitByHostId = (id) => {
   return db
     .query(
-      `SELECT * FROM pursuits
+      `SELECT pursuits.pursuit_ID, host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, CAST(COUNT(pursuitsCompletedByUsers.pursuit_ID) as integer) AS completions  FROM pursuits 
+  JOIN pursuitsCompletedByUsers ON pursuitsCompletedByUsers.pursuit_ID = pursuits.pursuit_ID
   WHERE host_ID = $1
-  AND active = true;`,
+  AND active = true
+  GROUP BY pursuits.pursuit_ID`,
       [id]
     )
     .then((res) => {

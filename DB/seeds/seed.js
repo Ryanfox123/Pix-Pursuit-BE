@@ -70,7 +70,7 @@ const seed = ({ usersData, huntsData, completionsData }) => {
     })
     .then(() => {
       const insertIntoPursuitsStr = format(
-        "INSERT INTO pursuits (host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, completions ) VALUES %L",
+        "INSERT INTO pursuits (host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title ) VALUES %L",
         huntsData.map(
           ({
             hostID,
@@ -80,7 +80,6 @@ const seed = ({ usersData, huntsData, completionsData }) => {
             randomLat,
             randomLong,
             difficulty,
-            completions,
             active,
             createdAt,
             title,
@@ -95,7 +94,6 @@ const seed = ({ usersData, huntsData, completionsData }) => {
             active,
             createdAt,
             title,
-            completions,
           ]
         )
       );
