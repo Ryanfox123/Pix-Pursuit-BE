@@ -3,7 +3,7 @@ const format = require("pg-format");
 
 exports.selectPursuits = (lat, long) => {
   let queryStr = `SELECT pursuits.pursuit_ID, host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, CAST(COUNT(pursuitsCompletedByUsers.pursuit_ID) as integer) AS completions  FROM pursuits 
-  JOIN pursuitsCompletedByUsers ON pursuitsCompletedByUsers.pursuit_ID = pursuits.pursuit_ID
+  LEFT JOIN pursuitsCompletedByUsers ON pursuitsCompletedByUsers.pursuit_ID = pursuits.pursuit_ID
   `;
 
   if (Number(lat) && Number(long)) {
