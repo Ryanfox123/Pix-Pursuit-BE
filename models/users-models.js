@@ -34,7 +34,9 @@ exports.selectUsersByUsername = (username) => {
   return db
     .query(
       `SELECT * FROM users
-    WHERE username = $1;`,
+      JOIN usersToCurrentPursuit
+      ON users.user_ID = usersToCurrentPursuit.user_ID
+      WHERE username = $1;`,
       [username]
     )
     .then((user) => {
@@ -46,6 +48,7 @@ exports.selectUsersByUsername = (username) => {
         username: userInfo.username,
         points: userInfo.points,
         user_id: userInfo.user_id,
+        pursuit_id: userInfo.pursuit_id,
       };
     });
 };
