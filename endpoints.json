@@ -169,7 +169,8 @@
       "user": {
         "username": "john_doe",
         "points": 1250,
-        "user_id": 1
+        "user_id": 1,
+        "pursuit_id": 1
       }
     }
   },
