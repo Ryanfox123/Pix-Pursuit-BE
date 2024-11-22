@@ -14,8 +14,14 @@ describe("POST /api/users/login", () => {
       .post("/api/users/login")
       .send({ username: "user1", password: "pass123" })
       .expect(200)
-      .then(({ body }) => {
-        expect(body.msg).toBe("Successfully logged in!");
+      .then(({ body: { user } }) => {
+        expect(user).toEqual({
+          hosted_pursuit_id: 1,
+          points: 100,
+          pursuit_id: null,
+          user_id: 1,
+          username: "user1",
+        });
       });
   });
   test("401: Should FAIL to login in to an account if user provides incorrect info", () => {

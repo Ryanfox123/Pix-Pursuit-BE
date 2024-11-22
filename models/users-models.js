@@ -33,7 +33,7 @@ exports.insertUsers = ({ username, email, password }) => {
 exports.selectUsersByUsername = (username) => {
   return db
     .query(
-      `SELECT username, users.user_ID, users.points, usersToCurrentPursuit.pursuit_ID, pursuits.pursuit_ID AS hosted_pursuit_id FROM users
+      `SELECT username, password, users.user_ID, users.points, usersToCurrentPursuit.pursuit_ID, pursuits.pursuit_ID AS hosted_pursuit_id FROM users
       JOIN usersToCurrentPursuit
       ON users.user_ID = usersToCurrentPursuit.user_ID
       LEFT JOIN pursuits

@@ -101,7 +101,9 @@ exports.postUsersAuth = async (req, res, next) => {
     })
     .then((result) => {
       if (result) {
-        res.status(200).send({ msg: "Successfully logged in!" });
+        selectUsersByUsername(username).then((user) => {
+          res.status(200).send({ user });
+        });
       } else {
         res.status(401).send({ msg: "Invalid username or password." });
       }
