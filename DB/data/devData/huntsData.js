@@ -324,4 +324,17 @@ module.exports = [
     createdAt: "2024-10-27T16:00:00Z",
     title: "Stroll Through the Park",
   },
+  {
+    hostID: 27,
+    image:
+      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    targetLat: 53.3945,
+    targetLong: -1.55,
+    randomLat: 53.396,
+    randomLong: -1.548,
+    difficulty: "Medium",
+    active: true,
+    createdAt: "2024-10-27T16:00:00Z",
+    title: "Sprint Through the Park",
+  },
 ];

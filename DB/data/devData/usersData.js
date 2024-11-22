@@ -208,4 +208,12 @@ module.exports = [
     pursuitID: 24,
     username: "a",
   },
+  {
+    ID: 27,
+    email: "anothertestuser@test.com",
+    password: "b",
+    points: 2501,
+    pursuitID: 22,
+    username: "b",
+  },
 ];
