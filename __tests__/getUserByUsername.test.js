@@ -18,6 +18,7 @@ describe("get users/:username", () => {
         expect(user.points).toBe(100);
         expect(user.user_id).toBe(1);
         expect(user.pursuit_id).toBe(null);
+        expect(user.hosted_pursuit_id).toBe(1);
       });
   });
   test("should return a 404 when a user isnt found with matching endpoint", () => {
