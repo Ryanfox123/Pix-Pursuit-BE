@@ -36,16 +36,18 @@ exports.selectUsersByUsername = (username) => {
       `SELECT username, users.user_ID, users.points, usersToCurrentPursuit.pursuit_ID, pursuits.pursuit_ID AS hosted_pursuit_id FROM users
       JOIN usersToCurrentPursuit
       ON users.user_ID = usersToCurrentPursuit.user_ID
-      JOIN pursuits
+      LEFT JOIN pursuits
       ON users.user_ID = pursuits.host_ID
       WHERE username = $1;`,
       [username]
     )
     .then((user) => {
       const userInfo = user.rows[0];
+
       if (!userInfo) {
         return Promise.reject({ status: 404, msg: "404: User not found" });
       }
+
       return {
         username: userInfo.username,
         points: userInfo.points,

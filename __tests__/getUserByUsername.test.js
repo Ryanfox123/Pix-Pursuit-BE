@@ -29,4 +29,17 @@ describe("get users/:username", () => {
         expect(body.msg).toBe("404: User not found");
       });
   });
+  test("should return a users information when passed a username for a user that is not hosting a hunt", () => {
+    return request(app)
+      .get("/api/users/user5")
+      .expect(200)
+      .then(({ body }) => {
+        const user = body.user;
+        expect(user.username).toBe("user5");
+        expect(user.points).toBe(200);
+        expect(user.user_id).toBe(5);
+        expect(user.pursuit_id).toBe(2);
+        expect(user.hosted_pursuit_id).toBe(null);
+      });
+  });
 });
