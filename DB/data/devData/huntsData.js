@@ -1,8 +1,7 @@
 module.exports = [
   {
     hostID: 1,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 53.4084,
     targetLong: -2.9916,
     randomLat: 53.412,
@@ -40,8 +39,7 @@ module.exports = [
   },
   {
     hostID: 4,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 53.483,
     targetLong: -2.2426,
     randomLat: 53.4875,

@@ -6,6 +6,7 @@ const {
   getUserPursuitByPursuitId,
   patchPursuitByPursuitId,
   getHostedPursuitByHostId,
+  getPursuitImage,
 } = require("../controllers/pursuits-controllers");
 
 purusitsRouter.route("/").get(getPursuits).post(postPursuit);
@@ -16,5 +17,7 @@ purusitsRouter
   .route("/:pursuitID")
   .get(getUserPursuitByPursuitId)
   .patch(patchPursuitByPursuitId);
+
+purusitsRouter.route("/:pursuitID/image").get(getPursuitImage);
 
 module.exports = purusitsRouter;

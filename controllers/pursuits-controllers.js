@@ -4,6 +4,7 @@ const {
   selectUserPursuitByPursuitId,
   insertPursuit,
   updatePursuitByPursuitId,
+  selectPursuitImage,
 } = require("../models/pursuits-model");
 
 exports.getPursuits = (req, res, next) => {
@@ -57,6 +58,21 @@ exports.patchPursuitByPursuitId = (req, res, next) => {
   updatePursuitByPursuitId(pursuitID, req.body)
     .then((pursuit) => {
       res.status(200).send({ pursuit });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+exports.getPursuitImage = (req, res, next) => {
+  const { pursuitID } = req.params;
+  selectUserPursuitByPursuitId(pursuitID)
+    .then((res) => {
+      return selectPursuitImage(res.image);
+    })
+    .then(({ image }) => {
+      console.log(image);
+      res.status(200).send({ image });
     })
     .catch((err) => {
       next(err);
