@@ -176,3 +176,13 @@ exports.selectUsersPWbyUsername = (username) => {
       };
     });
 };
+
+exports.selectCompletedPursuits = (user_id) => {
+  return db
+    .query(`select * from pursuitsCompletedByUsers Where user_ID = $1`, [
+      user_id,
+    ])
+    .then(({ rows }) => {
+      return rows;
+    });
+};
