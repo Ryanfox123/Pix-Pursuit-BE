@@ -1,5 +1,30 @@
 const db = require("../DB/connection");
 const format = require("pg-format");
+const { config } = require("dotenv");
+const AWS = require("aws-sdk");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+
+AWS.config.update({
+  secretAccessKey: process.env.S3_ACCESS_SECRET,
+  accessKeyId: process.env.S3_KEY,
+  region: process.env.S3_REGION,
+});
+
+const s3 = new AWS.S3();
+
+const bucket = process.env.S3_BUCKET;
+
+const upload = multer({
+  storage: multerS3({
+    bucket,
+    s3: s3,
+    acl: "public-read",
+    key: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  }),
+});
 
 exports.selectPursuits = (lat, long) => {
   let queryStr = `SELECT pursuits.pursuit_ID, host_ID, image, target_lat, target_long, random_lat, random_long, difficulty, active, created_at, title, CAST(COUNT(pursuitsCompletedByUsers.pursuit_ID) as integer) AS completions  FROM pursuits 
@@ -103,4 +128,11 @@ exports.selectUserPursuitByPursuitId = (id) => {
       }
       return pursuit.rows[0];
     });
+};
+
+exports.selectPursuitImage = async (url) => {
+  let image = await s3.getObject({ Bucket: bucket, Key: url }).promise();
+  const b64 = Buffer.from(image.Body).toString("base64");
+  const mimeType = "image/png";
+  return { image: `data:${mimeType};base64,${b64}` };
 };

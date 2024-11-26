@@ -2,7 +2,7 @@ module.exports = [
   {
     pursuitID: 1,
     hostID: 1,
-    image: "https://example.com/hunt1.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 40.7128,
     targetLong: -74.006,
     randomLat: 40.71,
@@ -40,5 +40,17 @@ module.exports = [
     active: false,
     createdAt: "2024-02-01T12:00:00Z",
     title: "Difficult Challenge",
+  },
+  {
+    hostID: 4,
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
+    targetLat: 53.483,
+    targetLong: -2.2426,
+    randomLat: 53.4875,
+    randomLong: -2.238,
+    difficulty: "Medium",
+    active: true,
+    createdAt: "2024-11-17T13:00:00Z",
+    title: "Explore the River Walk",
   },
 ];
