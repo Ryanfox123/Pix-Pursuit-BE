@@ -9,6 +9,7 @@ const {
   insertUsersPursuitPoints,
   insertUsersAuth,
   selectUsersPWbyUsername,
+  selectCompletedPursuits,
 } = require("../models/users-models.js");
 const bcrypt = require("bcrypt");
 
@@ -112,4 +113,15 @@ exports.postUsersAuth = async (req, res, next) => {
       next(err);
     });
   return insertUsersAuth();
+};
+
+exports.getCompletedPursuits = (req, res, next) => {
+  const { userId } = req.params;
+  selectCompletedPursuits(userId)
+    .then((pursuits) => {
+      res.status(200).send({ pursuits });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };

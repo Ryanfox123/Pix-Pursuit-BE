@@ -205,7 +205,7 @@ module.exports = [
     email: "testuser@test.com",
     password: "a",
     points: 2500,
-    pursuitID: 24,
+    pursuitID: null,
     username: "a",
   },
   {
@@ -237,7 +237,7 @@ module.exports = [
     email: "anothertestuser5@test.com",
     password: "w",
     points: 25000,
-    pursuitID: 22,
+    pursuitID: null,
     username: "W",
   },
   {
