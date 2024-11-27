@@ -8,7 +8,7 @@ module.exports = [
     randomLong: -2.9862,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-20T10:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Explore the City Center",
   },
   {
@@ -21,7 +21,7 @@ module.exports = [
     randomLong: -1.61,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-19T15:00:00Z",
+    createdAt: "2024-11-26T15:00:00Z",
     title: "Walk along the Quayside",
   },
   {
@@ -34,7 +34,7 @@ module.exports = [
     randomLong: -1.546,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-18T14:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Visit the Historic Town",
   },
   {
@@ -46,7 +46,7 @@ module.exports = [
     randomLong: -2.238,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-17T13:00:00Z",
+    createdAt: "2024-11-26T17:00:00Z",
     title: "Explore the River Walk",
   },
   {
@@ -59,7 +59,7 @@ module.exports = [
     randomLong: -2.7025,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-16T12:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Adventure through the Woods",
   },
   {
@@ -72,7 +72,7 @@ module.exports = [
     randomLong: -2.595,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-15T11:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Explore the Quiet Park",
   },
   {
@@ -85,7 +85,7 @@ module.exports = [
     randomLong: -2.4975,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-14T10:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Stroll through the Streets",
   },
   {
@@ -98,7 +98,7 @@ module.exports = [
     randomLong: -2.989,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-13T09:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Walk Around the Landmark",
   },
   {
@@ -111,7 +111,7 @@ module.exports = [
     randomLong: -2.475,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-12T08:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Visit the Scenic Point",
   },
   {
@@ -124,7 +124,7 @@ module.exports = [
     randomLong: -2.389,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-11T07:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Explore the Quiet Corner",
   },
   {
@@ -137,7 +137,7 @@ module.exports = [
     randomLong: -2.934,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-10T06:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Walk the Narrow Streets",
   },
   {
@@ -150,7 +150,7 @@ module.exports = [
     randomLong: -2.595,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-09T05:00:00Z",
+    createdAt: "2024-11-26T17:00:00Z",
     title: "Discover the Village",
   },
   {
@@ -163,7 +163,7 @@ module.exports = [
     randomLong: -1.745,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-08T04:00:00Z",
+    createdAt: "2024-11-26T17:00:00Z",
     title: "Explore the Quiet Streets",
   },
   {
@@ -176,7 +176,7 @@ module.exports = [
     randomLong: -2.2875,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-07T03:00:00Z",
+    createdAt: "2024-11-26T18:00:00Z",
     title: "Discover the Mountain Path",
   },
   {
@@ -189,7 +189,7 @@ module.exports = [
     randomLong: -2.237,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-06T02:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Visit the Quiet Village",
   },
   {
@@ -202,7 +202,7 @@ module.exports = [
     randomLong: -2.895,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-05T01:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Walk Around the Lake",
   },
   {
@@ -215,7 +215,7 @@ module.exports = [
     randomLong: -2.1215,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-04T00:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Explore the Clifftop Views",
   },
   {
@@ -228,7 +228,7 @@ module.exports = [
     randomLong: -2.41,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-11-03T23:00:00Z",
+    createdAt: "2024-11-26T23:00:00Z",
     title: "Visit the Forest Clearing",
   },
   {
@@ -241,7 +241,7 @@ module.exports = [
     randomLong: -2.38,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-11-02T22:00:00Z",
+    createdAt: "2024-11-26T22:00:00Z",
     title: "Walk in the Quiet Grove",
   },
   {
@@ -254,7 +254,7 @@ module.exports = [
     randomLong: -2.4165,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-11-01T21:00:00Z",
+    createdAt: "2024-11-26T21:00:00Z",
     title: "Explore the Hillside",
   },
   {
@@ -267,7 +267,7 @@ module.exports = [
     randomLong: -2.445,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-10-31T20:00:00Z",
+    createdAt: "2024-11-26T20:00:00Z",
     title: "Explore the Riverside",
   },
   {
@@ -280,7 +280,7 @@ module.exports = [
     randomLong: -2.312,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-10-30T19:00:00Z",
+    createdAt: "2024-11-26T19:00:00Z",
     title: "Walk through the Forest",
   },
   {
@@ -293,7 +293,7 @@ module.exports = [
     randomLong: -2.8975,
     difficulty: "Hard",
     active: true,
-    createdAt: "2024-10-29T18:00:00Z",
+    createdAt: "2024-11-26T18:00:00Z",
     title: "Climb the Steep Hill",
   },
   {
@@ -306,7 +306,7 @@ module.exports = [
     randomLong: -2.57,
     difficulty: "Easy",
     active: true,
-    createdAt: "2024-10-28T17:00:00Z",
+    createdAt: "2024-11-26T17:00:00Z",
     title: "Discover the Hidden Garden",
   },
   {
@@ -319,7 +319,7 @@ module.exports = [
     randomLong: -1.548,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-10-27T16:00:00Z",
+    createdAt: "2024-11-26T16:00:00Z",
     title: "Stroll Through the Park",
   },
   {
@@ -332,59 +332,7 @@ module.exports = [
     randomLong: -1.548,
     difficulty: "Medium",
     active: true,
-    createdAt: "2024-10-27T16:00:00Z",
+    createdAt: "2024-11-26T16:00:00Z",
     title: "Sprint Through the Park",
-  },
-  {
-    hostID: 28,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
-    targetLat: 37.75284,
-    targetLong: -122.49978,
-    randomLat: 37.75284,
-    randomLong: -122.49978,
-    difficulty: "Medium",
-    active: true,
-    createdAt: "2024-10-27T16:00:00Z",
-    title: "san is fran 1",
-  },
-  {
-    hostID: 7,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
-    targetLat: 37.75284,
-    targetLong: -122.49978,
-    randomLat: 37.75284,
-    randomLong: -122.49978,
-    difficulty: "Medium",
-    active: true,
-    createdAt: "2024-10-27T16:00:00Z",
-    title: "san is fran 1",
-  },
-  {
-    hostID: 7,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
-    targetLat: 37.66681,
-    targetLong: -122.38215,
-    randomLat: 37.65284,
-    randomLong: -122.38215,
-    difficulty: "Medium",
-    active: true,
-    createdAt: "2024-10-27T16:00:00Z",
-    title: "fransansico",
-  },
-  {
-    hostID: 7,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
-    targetLat: 37.80259,
-    targetLong: -122.45677,
-    randomLat: 37.80259,
-    randomLong: -122.45677,
-    difficulty: "Medium",
-    active: true,
-    createdAt: "2024-10-27T16:00:00Z",
-    title: "sicofansan 2.0",
   },
 ];
