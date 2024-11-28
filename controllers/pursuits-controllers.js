@@ -71,7 +71,6 @@ exports.getPursuitImage = (req, res, next) => {
       return selectPursuitImage(res.image);
     })
     .then(({ image }) => {
-      console.log(image);
       res.status(200).send({ image });
     })
     .catch((err) => {
