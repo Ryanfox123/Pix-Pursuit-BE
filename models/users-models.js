@@ -1,5 +1,6 @@
 const format = require("pg-format");
 const db = require("../DB/connection");
+const bcrypt = require("bcrypt");
 
 exports.selectUsers = () => {
   const queryStr = `SELECT * FROM users ORDER BY points DESC`;
@@ -8,10 +9,13 @@ exports.selectUsers = () => {
   });
 };
 
-exports.insertUsers = ({ username, email, password }) => {
+exports.insertUsers = async ({ username, email, password }) => {
   if (!username || !email || !password) {
     return Promise.reject({ status: 400, msg: "invalid request body" });
   }
+  const saltRounds = 4;
+  const hash = await bcrypt.hash(password, saltRounds);
+
   return db
     .query(
       `
@@ -23,7 +27,7 @@ exports.insertUsers = ({ username, email, password }) => {
         $3)
         RETURNING *
         `,
-      [username, email, password]
+      [username, email, hash]
     )
     .then(({ rows }) => {
       return rows[0];
