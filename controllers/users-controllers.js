@@ -20,8 +20,21 @@ exports.getUsers = (req, res, next) => {
 };
 
 exports.postUsers = (req, res, next) => {
-  insertUsers(req.body)
+  selectUsers()
+    .then((users) => {
+      console.log(users, req.body.username);
+
+      if (
+        users.some((user) => user.username === req.body.username) ||
+        users.some((user) => user.email === req.body.email)
+      ) {
+        console.log("error");
+        return Promise.reject({ status: 400, msg: "User already exists" });
+      }
+      return insertUsers(req.body);
+    })
     .then((user) => {
+      console.log(user);
       res.status(201).send({ user });
     })
     .catch((err) => {
