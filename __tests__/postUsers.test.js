@@ -34,4 +34,30 @@ describe("post /api/users", () => {
         expect(msg).toBe("invalid request body");
       });
   });
+  it("responds 400 - returns an error message if user with duplicate username tries to create an account", () => {
+    return request(app)
+      .post("/api/users")
+      .send({
+        email: "user1@example.com",
+        password: "pass123",
+        username: "user1",
+      })
+      .expect(400)
+      .then(({ body: { msg } }) => {
+        expect(msg).toBe("User already exists");
+      });
+  });
+  it("responds 400 - returns an error message if user with duplicate email tries to create an account", () => {
+    return request(app)
+      .post("/api/users")
+      .send({
+        email: "user1@example.com",
+        password: "pass11223",
+        username: "user100",
+      })
+      .expect(400)
+      .then(({ body: { msg } }) => {
+        expect(msg).toBe("User already exists");
+      });
+  });
 });
