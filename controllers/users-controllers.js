@@ -28,9 +28,9 @@ exports.postUsers = (req, res, next) => {
         users.some((user) => user.username === req.body.username) ||
         users.some((user) => user.email === req.body.email)
       ) {
-        console.log("error");
         return Promise.reject({ status: 400, msg: "User already exists" });
       }
+
       return insertUsers(req.body);
     })
     .then((user) => {

@@ -18,11 +18,24 @@ describe("post /api/users", () => {
       })
       .expect(201)
       .then(({ body: { user } }) => {
+        console.log(user);
         expect(user.username).toBe("username");
         expect(typeof user.user_id).toBe("number");
         expect(user.email).toBe("testemail@email.com");
-        expect(user.password).toBe("password");
         expect(user.points).toBe(0);
+      });
+  });
+  it("responds 201 - new users password is hashed", () => {
+    return request(app)
+      .post("/api/users")
+      .send({
+        email: "testemail@email.com",
+        password: "password",
+        username: "username",
+      })
+      .expect(201)
+      .then(({ body: { user } }) => {
+        expect(user.password).not.toBe("password");
       });
   });
   it("responds 400 - returns an error message if anything is missing from the request body", () => {
