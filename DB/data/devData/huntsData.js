@@ -181,8 +181,7 @@ module.exports = [
   },
   {
     hostID: 15,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 53.481,
     targetLong: -2.238,
     randomLat: 53.4825,
@@ -207,8 +206,7 @@ module.exports = [
   },
   {
     hostID: 17,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 53.44,
     targetLong: -2.1235,
     randomLat: 53.442,
@@ -233,8 +231,7 @@ module.exports = [
   },
   {
     hostID: 19,
-    image:
-      "https://www.discoverbritain.com/_gatsby/file/93ab30fd05e9c5b99b1dfa1ba3da01a4/21417_D2R06P-1024x718.jpg",
+    image: "5b5d6b58-5fb4-4b21-acf2-476ecd16ea8d",
     targetLat: 53.5865,
     targetLong: -2.382,
     randomLat: 53.588,
